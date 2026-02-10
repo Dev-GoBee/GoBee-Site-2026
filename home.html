@@ -4,52 +4,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoBee | Ecossistemas de Vendas de Alta Performance</title>
-    <!-- Favicon assumed same or placeholder -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <title>GoBee | Especialistas em e-Commerce de Alta Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gobee-dark': '#0F172A',
+                        'gobee-yellow': '#FACC15',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer base {
+            html { scroll-behavior: smooth; }
+        }
+        @layer components {
+            .btn-primary {
+                @apply bg-gobee-dark text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 flex items-center justify-center;
+            }
+            .btn-outline {
+                @apply bg-white text-gobee-dark border border-gray-300 px-8 py-4 rounded-lg font-semibold transition-all hover:bg-gray-50 flex items-center justify-center;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="32">
+<body class="bg-white text-gray-900 overflow-x-hidden antialiased">
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center cursor-pointer">
+                    <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
+                        class="w-auto transition-all duration-300 h-8">
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#servicos">Soluções</a></li>
-                    <li><a href="#nichos">Segmentos</a></li>
-                    <li><a href="#metodologia">Metodologia</a></li>
-                </ul>
-                <a href="#contato" class="btn btn-primary">Fala com Especialista</a>
-            </nav>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#servicos"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Soluções</a>
+                    <a href="#nichos"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Segmentos</a>
+                    <a href="#metodologia"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Metodologia</a>
+                    <a href="#faq"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Dúvidas</a>
+                </nav>
+                <div class="hidden md:block">
+                    <button onclick="document.getElementById('contato').scrollIntoView()"
+                        class="px-6 py-2.5 rounded-lg font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md">Falar
+                        com Especialista</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1>Transformamos <br>Lojas Virtuais em <br>Ecossistemas de <br>Vendas de Alta Performance.</h1>
-                        <p>Focamos em PMEs que buscam escala, recorrência e lucro real através de ciência aplicada ao
-                            e-commerce.</p>
-                        <div class="hero-btns">
-                            <a href="#contato" class="btn btn-primary">Receber Diagnóstico</a>
-                            <a href="#metodologia" class="btn btn-secondary">Conhecer Método</a>
+        <section class="relative bg-gray-50 pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gobee-yellow/10 rounded-full blur-3xl"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div
+                            class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
+                            <span class="flex h-2 w-2 rounded-full bg-green-500"></span>
+                            <span class="text-sm font-medium text-gray-600">Growth Partner & Full Commerce</span>
+                        </div>
+                        <h1 class="text-4xl lg:text-5xl xl:text-[68px] font-extrabold text-gobee-dark leading-tight">
+                            Transformamos Lojas Virtuais em <br><span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-gobee-yellow to-rose-800">Ecossistemas
+                                de Vendas</span> de Alta Performance.
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed max-w-lg">Do setup tecnológico à automação de
+                            marketing e CRM. A parceira completa para PMEs que buscam escala, recorrência e lucro
+                            líquido real.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="btn-primary">Receber Diagnóstico</button>
+                            <button class="btn-outline">Conhecer Método</button>
                         </div>
                     </div>
-                    <div class="hero-visual">
-                        <div class="stat-card">
-                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Crescimento
-                                Mensal</span>
-                            <span style="font-size: 1.5rem; font-weight: 700;" class="growth-positive">+127%</span>
+
+                    <!-- Performance Chart Card -->
+                    <div class="relative hidden lg:block">
+                        <div class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 relative z-10">
+                            <div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
+                                <div>
+                                    <span
+                                        class="text-xs text-gray-400 font-bold uppercase tracking-wider block mb-1">Status
+                                        do Ecossistema</span>
+                                    <span class="font-bold text-gray-800 text-lg">Performance Geral</span>
+                                </div>
+                                <span class="bg-green-100 text-green-800 text-xs px-3 py-1.5 rounded-full font-bold">
+                                    +127% Crescimento
+                                </span>
+                            </div>
+                            <!-- Mockup Chart -->
+                            <div class="space-y-6">
+                                <div class="flex items-end gap-3 h-48">
+                                    <div class="w-full bg-gray-50 rounded-t-lg h-24 transition-all hover:bg-gray-100">
+                                    </div>
+                                    <div class="w-full bg-gray-50 rounded-t-lg h-32 transition-all hover:bg-gray-100">
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-t-lg h-28 transition-all hover:bg-gray-200">
+                                    </div>
+                                    <div
+                                        class="w-full bg-gobee-dark/5 rounded-t-lg h-40 transition-all hover:bg-gobee-dark/10">
+                                    </div>
+                                    <div
+                                        class="w-full bg-gobee-yellow/20 rounded-t-lg h-48 transition-all hover:bg-gobee-yellow/30 relative">
+                                        <div
+                                            class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gobee-dark rounded-full border-4 border-white shadow-lg animate-pulse">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                        <span class="text-xs text-gray-500 block">Faturamento</span>
+                                        <span class="text-xl font-bold">R$ 142.5k</span>
+                                    </div>
+                                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                        <span class="text-xs text-gray-500 block">ROI Médio</span>
+                                        <span class="text-xl font-bold text-green-600">8.4x</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat-card">
-                            <span
-                                style="font-size: 0.8rem; color: var(--text-muted); display: block;">Faturamento</span>
-                            <span style="font-size: 1.5rem; font-weight: 700;">R$ 142.500,00</span>
+                        <!-- Decorative background shapes -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-gobee-yellow/5 to-rose-500/5 rounded-full blur-3xl -z-10">
                         </div>
                     </div>
                 </div>
@@ -57,158 +148,304 @@
         </section>
 
         <!-- Scenario Section -->
-        <section id="cenario">
-            <div class="container">
-                <div class="section-title">
-                    <h2>O e-Commerce mudou.<br>Ter apenas um site não basta.</h2>
-                    <p style="max-width: 700px; margin: 1.5rem auto 0;">O mercado está mais competitivo, os custos de
-                        mídia explodiram e a desorganização técnica impede o crescimento estruturado.</p>
+        <section id="cenario" class="py-24 bg-white scroll-mt-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-20 flex flex-col items-center">
+                    <span class="text-gobee-yellow font-bold uppercase tracking-widest text-sm mb-4"># o mercado
+                        mudou</span>
+                    <h3 class="text-3xl md:text-5xl font-extrabold text-gobee-dark leading-tight">
+                        O e-Commerce mudou.<br> Ter apenas um site não basta.
+                    </h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-xl">
+                        <div
+                            class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            ⚡</div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4">CAC Explosivo</h4>
+                        <p class="text-gray-600 leading-relaxed text-lg">O custo do tráfego pago dobrou nos últimos
+                            anos. Se você depende 100% de novos clientes para vender, sua margem está sendo corroída dia
+                            após dia.</p>
+                    </div>
+                    <div
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-rose-200 transition-all hover:shadow-xl">
+                        <div
+                            class="w-14 h-14 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            ⚙️</div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4">Desorganização Técnica</h4>
+                        <p class="text-gray-600 leading-relaxed text-lg">ERPs que não batem estoque com Marketplaces.
+                            Checkout que trava. Site lento no mobile. A falta de infraestrutura é o teto do seu
+                            faturamento.</p>
+                    </div>
+                    <div
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-yellow transition-all hover:shadow-xl">
+                        <div
+                            class="w-14 h-14 bg-yellow-100 text-gobee-yellow rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            🐝</div>
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4">A Solução GoBee</h4>
+                        <p class="text-gray-600 leading-relaxed text-lg">Unimos Expertise Técnica com Alta Performance.
+                            Focamos em aumentar a Retenção (LTV) e o Lucro Líquido, não apenas cliques e ROAS
+                            superficial.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Services Section (Dark) -->
-        <section class="dark-section" id="servicos">
-            <div class="container">
-                <div class="section-title">
-                    <h2 style="color: white;">Full Commerce & Growth</h2>
-                    <p>Soluções integradas para dominar cada etapa da jornada de compra.</p>
+        <section id="servicos" class="py-32 bg-[#020617] text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+                    <div class="space-y-6">
+                        <h3 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Full Commerce & Growth</h3>
+                        <p class="text-gray-400 max-w-2xl text-xl leading-relaxed">Não entregamos apenas "partes" do
+                            processo. Entregamos o ciclo completo de venda: <span
+                                class="text-white font-semibold">Atração, Conversão e Retenção.</span></p>
+                    </div>
+                    <div class="h-px flex-grow bg-white/10 hidden xl:block mx-12"></div>
                 </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>Infraestrutura & Setup</h3>
-                        <p>Tecnologia escalável e checkouts otimizados para converter visitantes em compradores
-                            compulsivos.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <!-- Service cards as extracted -->
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
+                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🏢</div>
+                        <h4 class="text-xl font-bold mb-3">Infraestrutura & Setup</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
+                            Migração segura para plataformas enterprise (Nuvemshop/Shopify), APIs e Integrações de ERP
+                            (Bling/Tiny).</p>
+                        <a href="#"
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            Mais →</a>
                     </div>
-                    <div class="service-card">
-                        <h3>Performance & Tráfego</h3>
-                        <p>Gestão de mídia focada no retorno sobre o investimento e escalabilidade de audiências.</p>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
+                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">📈</div>
+                        <h4 class="text-xl font-bold mb-3">Performance & Tráfego</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
+                            Gestão de Meta e Google Ads focada em CPA/ROI real. Escala agressiva através de Segmentação
+                            e Criativos de Alta Conversão.</p>
+                        <a href="#"
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            Mais →</a>
                     </div>
-                    <div class="service-card">
-                        <h3>Retenção & CRM</h3>
-                        <p>Diminui seu custo de aquisição através de réguas de automação e fidelização de clientes.</p>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
+                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🤖</div>
+                        <h4 class="text-xl font-bold mb-3">Retenção & CRM</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
+                            Aumentamos seu LTV com Réguas de Automação no WhatsApp e E-mail, recuperando carrinhos e
+                            gerando re-compra constante.</p>
+                        <a href="#"
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            Mais →</a>
                     </div>
-                    <div class="service-card">
-                        <h3>Marketplaces</h3>
-                        <p>Presença sólida nos maiores canais de venda do país com gestão centralizada.</p>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
+                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🛍️</div>
+                        <h4 class="text-xl font-bold mb-3">Marketplaces</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
+                            Gestão estratégica no Mercado Livre, Magalu e Amazon. Posicionamento, Reputação e Campanhas
+                            de Performance internas.</p>
+                        <a href="#"
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            Mais →</a>
                     </div>
-                    <div class="service-card">
-                        <h3>Design & CRO</h3>
-                        <p>Experiência do usuário (UX) pautada em dados para aumentar a taxa de conversão final.</p>
-                    </div>
-                    <div class="service-card" style="border-color: var(--primary);">
-                        <h3>Growth Strategy</h3>
-                        <p>Consultoria estratégica para identificar alavancas de crescimento no seu nicho específico.
-                        </p>
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-yellow/50 bg-white/10 group">
+                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🎨</div>
+                        <h4 class="text-xl font-bold mb-3">Design & CRO</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
+                            UI/UX focado em vender mais. Otimizamos sua Taxa de Conversão removendo fricções na jornada
+                            de compra do cliente.</p>
+                        <a href="#"
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            Mais →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Segments Section -->
-        <section id="nichos">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Especialistas no seu Nicho</h2>
-                    <p>Dominamos o comportamento de compra nos principais segmentos do e-commerce.</p>
+        <!-- Nichos Section -->
+        <section id="nichos" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl md:text-5xl font-bold text-gobee-dark">Especialistas no seu Nicho</h3>
+                    <p class="text-gray-600 mt-4 text-xl">Dominamos o comportamento de compra nos principais segmentos.
+                    </p>
                 </div>
-                <div class="nichos-grid">
-                    <div class="nicho-card">Moda & Acessórios</div>
-                    <div class="nicho-card">Saúde & Beleza</div>
-                    <div class="nicho-card">Pet Shop</div>
-                    <div class="nicho-card">Casa & Decoração</div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="text-4xl mb-4">👕</div>
+                        <span class="font-bold text-gray-900">Moda & Acessórios</span>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="text-4xl mb-4">💄</div>
+                        <span class="font-bold text-gray-900">Saúde & Beleza</span>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="text-4xl mb-4">🐕</div>
+                        <span class="font-bold text-gray-900">Pet Shop</span>
+                    </div>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        <div class="text-4xl mb-4">🏠</div>
+                        <span class="font-bold text-gray-900">Casa & Decoração</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Methodology Section -->
-        <section id="metodologia">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Do Diagnóstico ao Resultado</h2>
-                    <p>Nosso processo estruturado para levar seu e-commerce ao topo.</p>
+        <section id="metodologia" class="py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="mb-20">
+                    <h3 class="text-3xl md:text-5xl font-bold text-gobee-dark">Do Diagnóstico ao Resultado</h3>
+                    <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">Não oferecemos pacotes de
+                        prateleira. Desenhamos a solução exata baseada na maturidade atual da sua operação.</p>
                 </div>
-                <div class="steps-grid">
-                    <div class="step">
-                        <div class="step-number">01</div>
-                        <h4>Diagnóstico</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            01</div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Diagnóstico</h4>
+                        <p class="text-gray-600">Analisamos seu nicho, faturamento atual e principais dores
+                            operacionais.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">02</div>
-                        <h4>Análise</h4>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            02</div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Análise de Gestão</h4>
+                        <p class="text-gray-600">Entendemos os números para saber em qual alavanca puxar primeiro para
+                            maximizar o lucro.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">03</div>
-                        <h4>Design</h4>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            03</div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Design da Solução</h4>
+                        <p class="text-gray-600">Desenhamos a estratégia técnica e criativa sob medida para o seu
+                            público alvo.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">04</div>
-                        <h4>Ação</h4>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            04</div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Plano de Ação</h4>
+                        <p class="text-gray-600">Cronograma agressivo de implementações focado nos KPIs acordados.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">05</div>
-                        <h4>Otimização</h4>
+                    <div
+                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        <div
+                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            05</div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Escala & Otimização</h4>
+                        <p class="text-gray-600">Mão na massa e monitoramento em tempo real para escalar seu faturamento
+                            de forma lucrativa.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stack Section -->
-        <section>
-            <div class="container">
-                <div class="stack-logos">
-                    <span>Nuvemshop</span>
-                    <span>Shopify</span>
-                    <span>Google Ads</span>
-                    <span>RD Station</span>
-                    <span>Bling</span>
-                    <span>Tiny</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact/Form Section -->
-        <section id="contato">
-            <div class="container">
-                <div class="footer-grid">
-                    <div>
-                        <h2>Pronto para escalar?</h2>
-                        <p style="margin-top: 1rem;">Fale com um especialista agora e receba um diagnóstico
-                            personalizado do seu e-commerce.</p>
-                    </div>
-                    <div style="grid-column: span 2;">
-                        <!-- Simplified Form Mockup -->
-                        <div style="background: #f8fafc; padding: 2rem; border-radius: 12px;">
-                            <p style="margin-bottom: 1rem; color: var(--text-muted);">Formulário de Contato</p>
-                            <!-- Actual form tags would go here -->
+        <!-- Stack & Form Section -->
+        <section id="contato" class="py-32 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                    <div class="space-y-12">
+                        <div>
+                            <h3 class="text-4xl font-bold text-gobee-dark leading-tight">Sua dúvida não está aqui? Fale
+                                conosco.</h3>
+                            <p class="text-gray-600 mt-6 text-xl">Entre em contato e descubra como a GoBee pode
+                                transformar seu e-commerce.</p>
                         </div>
+                        <div
+                            class="grid grid-cols-3 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                            <span class="font-bold text-xl flex items-center">Vtex</span>
+                            <span class="font-bold text-xl flex items-center">Shopify</span>
+                            <span class="font-bold text-xl flex items-center">Nuvemshop</span>
+                            <span class="font-bold text-xl flex items-center">Meta Ads</span>
+                            <span class="font-bold text-xl flex items-center">RD Station</span>
+                            <span class="font-bold text-xl flex items-center">Tiny ERP</span>
+                        </div>
+                    </div>
+                    <!-- Form Mockup -->
+                    <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-gray-700">Seu Nome</label>
+                                    <input type="text" placeholder="Nome completo"
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-bold text-gray-700">WhatsApp</label>
+                                    <input type="text" placeholder="(DD) 99999-9999"
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700">E-mail Corporativo</label>
+                                <input type="email" placeholder="seu@email.com"
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700">Qual o seu maior desafio hoje?</label>
+                                <textarea placeholder="Conte-nos brevemente..." rows="4"
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-5 bg-gobee-dark text-white rounded-xl font-bold text-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
+                                Solicitação →</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="24">
-                    <p style="margin-top: 1rem; color: var(--text-muted);">Transformamos Lojas Virtuais em Ecossistemas
-                        de Vendas de Alta Performance.</p>
+    <!-- Footer -->
+    <footer class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                <div class="space-y-6">
+                    <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
+                        class="h-10">
+                    <p class="text-gray-500 max-w-sm">Transformamos Lojas Virtuais em Ecossistemas de Vendas de Alta
+                        Performance através de Ciência de Dados e Mentalidade de Growth.</p>
                 </div>
-                <div>
-                    <h4>Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#metodologia">Método</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-gobee-dark">Soluções</h4>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-gobee-dark">Performance</a></li>
+                            <li><a href="#" class="hover:text-gobee-dark">Full Commerce</a></li>
+                            <li><a href="#" class="hover:text-gobee-dark">Design CRO</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-gobee-dark">Empresa</h4>
+                        <ul class="space-y-2 text-sm text-gray-500">
+                            <li><a href="#" class="hover:text-gobee-dark">Sobre Nós</a></li>
+                            <li><a href="#" class="hover:text-gobee-dark">Metodologia</a></li>
+                            <li><a href="#" class="hover:text-gobee-dark">Blog</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div>
-                    <h4>Contato</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:contato@gobee.com.br">contato@gobee.com.br</a></li>
-                    </ul>
+            </div>
+            <div
+                class="mt-16 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-400">
+                <span>&copy; 2026 GoBee Performance. Todos os direitos reservados.</span>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-gobee-dark">Privacidade</a>
+                    <a href="#" class="hover:text-gobee-dark">Termos</a>
                 </div>
             </div>
         </div>
