@@ -18,6 +18,10 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
+                    spacing: {
+                        '7': '28px',
+                        '17.5': '70px',
+                    }
                 }
             }
         }
@@ -30,10 +34,16 @@
         }
         @layer components {
             .btn-primary {
-                @apply bg-gobee-rose text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gobee-rose-dark flex items-center justify-center;
+                @apply bg-gobee-rose text-white px-8 py-4 rounded-[10.5px] font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gobee-rose-dark flex items-center justify-center;
             }
             .btn-outline {
-                @apply bg-white text-gobee-dark border border-gray-300 px-8 py-4 rounded-lg font-semibold transition-all hover:bg-gray-50 flex items-center justify-center;
+                @apply bg-white text-gobee-dark border border-gray-300 px-8 py-4 rounded-[10.5px] font-semibold transition-all hover:bg-gray-50 flex items-center justify-center;
+            }
+            .container-gobee {
+                @apply max-w-[1320px] mx-auto px-7;
+            }
+            .section-gobee {
+                @apply py-[70px];
             }
         }
     </style>
@@ -42,8 +52,8 @@
 <body class="bg-white text-gray-900 overflow-x-hidden antialiased">
     <!-- Header -->
     <header
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm py-3">
-        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm py-3 border-b border-gray-100">
+        <div class="container-gobee">
             <div class="flex justify-between items-center">
                 <div class="flex items-center cursor-pointer">
                     <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
@@ -61,7 +71,7 @@
                 </nav>
                 <div class="hidden md:block">
                     <button onclick="document.getElementById('contato').scrollIntoView()"
-                        class="px-6 py-2.5 rounded-lg font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md">Falar
+                        class="px-6 py-2.5 rounded-[10.5px] font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md">Falar
                         com Especialista</button>
                 </div>
             </div>
@@ -70,25 +80,26 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative bg-gray-50 pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
+        <section class="relative bg-gray-50 pt-[168px] pb-[112px] overflow-hidden">
             <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gobee-rose/5 rounded-full blur-3xl"></div>
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-8">
+            <div class="container-gobee relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-[35px] items-center">
+                    <div class="space-y-[28px]">
                         <div
                             class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
                             <span class="flex h-2 w-2 rounded-full bg-gobee-rose"></span>
                             <span class="text-sm font-medium text-gray-600">Growth Partner & Full Commerce</span>
                         </div>
-                        <h1 class="text-4xl lg:text-5xl xl:text-[68px] font-extrabold text-gobee-dark leading-tight">
+                        <h1 class="text-[68px] font-extrabold text-gobee-dark leading-[68px] max-w-[611px]">
                             Transformamos Lojas Virtuais em <br><span
                                 class="text-transparent bg-clip-text bg-gradient-to-r from-gobee-rose to-rose-900">Ecossistemas
                                 de Vendas</span> de Alta Performance.
                         </h1>
-                        <p class="text-xl text-gray-600 leading-relaxed max-w-lg">Do setup tecnológico à automação de
-                            marketing e CRM. A parceira completa para PMEs que buscam escala, recorrência e lucro
-                            líquido real.</p>
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <p class="text-[17.5px] text-gray-600 leading-[28.4px] max-w-[448px]">
+                            Do setup tecnológico à automação de marketing e CRM. A parceira completa para PMEs que
+                            buscam escala, recorrência e lucro líquido real.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
                             <button class="btn-primary">Receber Diagnóstico</button>
                             <button class="btn-outline">Conhecer Método</button>
                         </div>
@@ -96,7 +107,7 @@
 
                     <!-- Performance Chart Card -->
                     <div class="relative hidden lg:block">
-                        <div class="bg-white p-8 rounded-2xl shadow-2xl border border-gray-100 relative z-10">
+                        <div class="bg-white p-[28px] rounded-[10.5px] shadow-2xl border border-gray-100 relative z-10">
                             <div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
                                 <div>
                                     <span
@@ -104,7 +115,7 @@
                                         do Ecossistema</span>
                                     <span class="font-bold text-gray-800 text-lg">Performance Geral</span>
                                 </div>
-                                <span class="bg-rose-50 text-gobee-rose text-xs px-3 py-1.5 rounded-full font-bold">
+                                <span class="bg-rose-50 text-gobee-rose text-[12px] px-3 py-1.5 rounded-full font-bold">
                                     +127% Crescimento
                                 </span>
                             </div>
@@ -149,18 +160,18 @@
         </section>
 
         <!-- Scenario Section -->
-        <section id="cenario" class="py-24 bg-white scroll-mt-28">
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-20 flex flex-col items-center">
-                    <span class="text-gobee-rose font-bold uppercase tracking-widest text-sm mb-4"># o mercado
+        <section id="cenario" class="section-gobee bg-white scroll-mt-28">
+            <div class="container-gobee">
+                <div class="text-center mb-16 flex flex-col items-center">
+                    <span class="text-gobee-rose font-bold uppercase tracking-widest text-[14px] mb-4"># o mercado
                         mudou</span>
-                    <h3 class="text-3xl md:text-5xl font-extrabold text-gobee-dark leading-tight">
+                    <h2 class="text-[31.5px] font-extrabold text-gobee-dark leading-[35px]">
                         O e-Commerce mudou.<br> Ter apenas um site não basta.
-                    </h3>
+                    </h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-[35px]">
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
+                        class="group bg-[#f9fafb] p-[28px] rounded-[10.5px] border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
                             class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -170,13 +181,13 @@
                                 <polyline points="16 17 22 17 22 11"></polyline>
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-4">CAC Explosivo</h4>
-                        <p class="text-gray-600 leading-relaxed text-lg">O custo do tráfego pago dobrou nos últimos
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-4">CAC Explosivo</h3>
+                        <p class="text-gray-600 leading-relaxed text-base">O custo do tráfego pago dobrou nos últimos
                             anos. Se você depende 100% de novos clientes para vender, sua margem está sendo corroída dia
                             após dia.</p>
                     </div>
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
+                        class="group bg-[#f9fafb] p-[28px] rounded-[10.5px] border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
                             class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -188,13 +199,13 @@
                                 <path d="M12 17h.01"></path>
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-4">Desorganização Técnica</h4>
-                        <p class="text-gray-600 leading-relaxed text-lg">ERPs que não batem estoque com Marketplaces.
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-4">Desorganização Técnica</h3>
+                        <p class="text-gray-600 leading-relaxed text-base">ERPs que não batem estoque com Marketplaces.
                             Checkout que trava. Site lento no mobile. A falta de infraestrutura é o teto do seu
                             faturamento.</p>
                     </div>
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
+                        class="group bg-[#f9fafb] p-[28px] rounded-[10.5px] border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
                             class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -205,8 +216,9 @@
                                 <circle cx="12" cy="12" r="2"></circle>
                             </svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-gray-900 mb-4">A Solução GoBee</h4>
-                        <p class="text-gray-600 leading-relaxed text-lg">Unimos Expertise Técnica com Alta Performance.
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-4">A Solução GoBee</h3>
+                        <p class="text-gray-600 leading-relaxed text-base">Unimos Expertise Técnica com Alta
+                            Performance.
                             Focamos em aumentar a Retenção (LTV) e o Lucro Líquido, não apenas cliques e ROAS
                             superficial.</p>
                     </div>
@@ -215,21 +227,23 @@
         </section>
 
         <!-- Services Section (Dark) -->
-        <section id="servicos" class="py-32 bg-[#020617] text-white">
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="servicos" class="section-gobee bg-[#020617] text-white">
+            <div class="container-gobee">
                 <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div class="space-y-6">
-                        <h3 class="text-4xl md:text-5xl font-bold text-white tracking-tight">Full Commerce & Growth</h3>
-                        <p class="text-gray-400 max-w-2xl text-xl leading-relaxed">Não entregamos apenas "partes" do
+                        <h2 class="text-[31.5px] md:text-[42px] font-bold text-white tracking-tight leading-[48px]">Full
+                            Commerce & Growth</h2>
+                        <p class="text-gray-400 max-w-2xl text-[17.5px] leading-relaxed">Não entregamos apenas "partes"
+                            do
                             processo. Entregamos o ciclo completo de venda: <span
                                 class="text-white font-semibold">Atração, Conversão e Retenção.</span></p>
                     </div>
                     <div class="h-px flex-grow bg-white/10 hidden xl:block mx-12"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-[28px]">
                     <!-- Service cards with SVGs -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
                         <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -239,7 +253,7 @@
                                 <path d="M3 12A9 3 0 0 0 21 12"></path>
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">Infraestrutura & Setup</h4>
+                        <h3 class="text-[21px] font-bold mb-3">Infraestrutura & Setup</h3>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Migração segura para plataformas enterprise (Nuvemshop/Shopify), APIs e Integrações de ERP
                             (Bling/Tiny).</p>
@@ -248,7 +262,7 @@
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
                         <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -257,7 +271,7 @@
                                 <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">Performance & Tráfego</h4>
+                        <h3 class="text-[21px] font-bold mb-3">Performance & Tráfego</h3>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Gestão de Meta e Google Ads focada em CPA/ROI real. Escala agressiva através de Segmentação
                             e Criativos de Alta Conversão.</p>
@@ -266,7 +280,7 @@
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
                         <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -277,7 +291,7 @@
                                 <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">Retenção & CRM</h4>
+                        <h3 class="text-[21px] font-bold mb-3">Retenção & CRM</h3>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Aumentamos seu LTV com Réguas de Automação no WhatsApp e E-mail, recuperando carrinhos e
                             gerando re-compra constante.</p>
@@ -286,7 +300,7 @@
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
                         <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -296,7 +310,7 @@
                                 <path d="M16 10a4 4 0 0 1-8 0"></path>
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">Marketplaces</h4>
+                        <h3 class="text-[21px] font-bold mb-3">Marketplaces</h3>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Gestão estratégica no Mercado Livre, Magalu e Amazon. Posicionamento, Reputação e Campanhas
                             de Performance internas.</p>
@@ -305,7 +319,7 @@
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-rose/50 bg-white/10 group">
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-rose/50 bg-white/10 group">
                         <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -314,7 +328,7 @@
                                 <path d="M12 18h.01"></path>
                             </svg>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">Design & CRO</h4>
+                        <h3 class="text-[21px] font-bold mb-3">Design & CRO</h3>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             UI/UX focado em vender mais. Otimizamos sua Taxa de Conversão removendo fricções na jornada
                             de compra do cliente.</p>
@@ -327,16 +341,17 @@
         </section>
 
         <!-- Nichos Section -->
-        <section id="nichos" class="py-24 bg-gray-50">
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="nichos" class="section-gobee bg-gray-50">
+            <div class="container-gobee">
                 <div class="text-center mb-16">
-                    <h3 class="text-3xl md:text-5xl font-bold text-gobee-dark">Especialistas no seu Nicho</h3>
-                    <p class="text-gray-600 mt-4 text-xl">Dominamos o comportamento de compra nos principais segmentos.
+                    <h2 class="text-[31.5px] font-bold text-gobee-dark">Especialistas no seu Nicho</h2>
+                    <p class="text-gray-600 mt-4 text-[17.5px]">Dominamos o comportamento de compra nos principais
+                        segmentos.
                     </p>
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-[35px]">
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                         <div class="text-gobee-rose mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -349,7 +364,7 @@
                         <span class="font-bold text-gray-900">Moda & Acessórios</span>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                         <div class="text-gobee-rose mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -364,7 +379,7 @@
                         <span class="font-bold text-gray-900">Saúde & Beleza</span>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                         <div class="text-gobee-rose mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -385,7 +400,7 @@
                         <span class="font-bold text-gray-900">Pet Shop</span>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                         <div class="text-gobee-rose mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -401,56 +416,61 @@
         </section>
 
         <!-- Methodology Section -->
-        <section id="metodologia" class="py-32 bg-white">
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section id="metodologia" class="section-gobee bg-white">
+            <div class="container-gobee text-center">
                 <div class="mb-20">
-                    <h3 class="text-3xl md:text-5xl font-bold text-gobee-dark">Do Diagnóstico ao Resultado</h3>
-                    <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">Não oferecemos pacotes de
+                    <h2 class="text-[31.5px] font-bold text-gobee-dark leading-[35px]">Do Diagnóstico ao Resultado</h2>
+                    <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-[17.5px] leading-relaxed">Não oferecemos pacotes
+                        de
                         prateleira. Desenhamos a solução exata baseada na maturidade atual da sua operação.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[35px]">
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
                             class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             01</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Diagnóstico</h4>
-                        <p class="text-gray-600">Analisamos seu nicho, faturamento atual e principais dores
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Diagnóstico</h3>
+                        <p class="text-gray-600 text-sm">Analisamos seu nicho, faturamento atual e principais dores
                             operacionais.</p>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
                             class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             02</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Análise de Gestão</h4>
-                        <p class="text-gray-600">Entendemos os números para saber em qual alavanca puxar primeiro para
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Análise de Gestão</h3>
+                        <p class="text-gray-600 text-sm">Entendemos os números para saber em qual alavanca puxar
+                            primeiro para
                             maximizar o lucro.</p>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
                             class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             03</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Design da Solução</h4>
-                        <p class="text-gray-600">Desenhamos a estratégia técnica e criativa sob medida para o seu
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Design da Solução</h3>
+                        <p class="text-gray-600 text-sm">Desenhamos a estratégia técnica e criativa sob medida para o
+                            seu
                             público alvo.</p>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
                             class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             04</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Plano de Ação</h4>
-                        <p class="text-gray-600">Cronograma agressivo de implementações focado nos KPIs acordados.</p>
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Plano de Ação</h3>
+                        <p class="text-gray-600 text-sm">Cronograma agressivo de implementações focado nos KPIs
+                            acordados.</p>
                     </div>
                     <div
-                        class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
                             class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             05</div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">Escala & Otimização</h4>
-                        <p class="text-gray-600">Mão na massa e monitoramento em tempo real para escalar seu faturamento
+                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Escala & Otimização</h3>
+                        <p class="text-gray-600 text-sm">Mão na massa e monitoramento em tempo real para escalar seu
+                            faturamento
                             de forma lucrativa.</p>
                     </div>
                 </div>
@@ -458,14 +478,15 @@
         </section>
 
         <!-- Stack & Form Section -->
-        <section id="contato" class="py-32 bg-gray-50">
-            <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contato" class="section-gobee bg-gray-50">
+            <div class="container-gobee">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <div class="space-y-12">
                         <div>
-                            <h3 class="text-4xl font-bold text-gobee-dark leading-tight">Sua dúvida não está aqui? Fale
-                                conosco.</h3>
-                            <p class="text-gray-600 mt-6 text-xl">Entre em contato e descubra como a GoBee pode
+                            <h2 class="text-[31.5px] font-bold text-gobee-dark leading-tight">Sua dúvida não está aqui?
+                                Fale
+                                conosco.</h2>
+                            <p class="text-gray-600 mt-6 text-[17.5px]">Entre em contato e descubra como a GoBee pode
                                 transformar seu e-commerce.</p>
                         </div>
                         <div
@@ -479,7 +500,7 @@
                         </div>
                     </div>
                     <!-- Form Mockup -->
-                    <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+                    <div class="bg-white p-10 rounded-[10.5px] shadow-xl border border-gray-100">
                         <form class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
@@ -504,7 +525,7 @@
                                     class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all"></textarea>
                             </div>
                             <button type="submit"
-                                class="w-full py-5 bg-gobee-rose text-white rounded-xl font-bold text-lg hover:bg-gobee-rose-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
+                                class="w-full py-5 bg-gobee-rose text-white rounded-[10.5px] font-bold text-lg hover:bg-gobee-rose-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
                                 Solicitação →</button>
                         </form>
                     </div>
@@ -515,7 +536,7 @@
 
     <!-- Footer -->
     <footer class="py-16 bg-white border-t border-gray-100">
-        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="container-gobee">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
                 <div class="space-y-6">
                     <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
