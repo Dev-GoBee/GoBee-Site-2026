@@ -1,0 +1,251 @@
+:root {
+    --primary: #e11d48;
+    --primary-hover: #be123c;
+    --dark-bg: #030712;
+    --dark-section: #0f172a;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --bg-light: #f8fafc;
+    --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    background-color: var(--white);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--dark-bg);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #1a1a1a;
+}
+
+.btn-accent {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding-top: 6rem;
+    background: radial-gradient(circle at 10% 10%, rgba(225, 29, 72, 0.05) 0%, transparent 40%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.dashboard-preview {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.dashboard-preview img {
+    width: 100%;
+    display: block;
+}
+
+/* Dark Section styling example */
+.dark-section {
+    background-color: var(--dark-bg);
+    color: var(--white);
+}
+
+.dark-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Card Grids */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.dark-section .card {
+    background: #111827;
+    border-color: #374151;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: #111827;
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid #1f2937;
+    transition: all 0.3s;
+}
+
+.service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: rgba(225, 29, 72, 0.1);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.service-card h4 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.service-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.service-list li {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-list li::before {
+    content: '✓';
+    color: var(--primary);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(225, 29, 72, 0.1);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
