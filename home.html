@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoBee | Ecossistemas de Vendas de Alta Performance</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Favicon assumed same or placeholder -->
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
@@ -16,15 +14,14 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="40">
+                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="32">
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#servicos">Soluções</a></li>
+                    <li><a href="#nichos">Segmentos</a></li>
                     <li><a href="#metodologia">Metodologia</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#contato">Contato</a></li>
                 </ul>
-                <a href="#contato" class="btn btn-primary">Fale com um especialista</a>
+                <a href="#contato" class="btn btn-primary">Fala com Especialista</a>
             </nav>
         </div>
     </header>
@@ -33,251 +30,186 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>Transformamos <br>Lojas Virtuais em <br><span>Ecossistemas de <br>Vendas</span> de Alta
-                    <br>Performance.
-                </h1>
-                <p>Do diagnóstico à escala: automatizamos marketing e CRM, otimizamos conversão e KPIs que trazem escala
-                    verdadeira ao seu e-commerce.</p>
-                <div class="hero-btns">
-                    <a href="#solucoes" class="btn btn-accent">Verificar Diagnóstico</a>
-                    <a href="#metodologia" class="btn btn-primary">Conhecer Método</a>
-                </div>
-                <div class="dashboard-preview">
-                    <img src="assets/images/dashboard.png" alt="Dashboard GoBee Performance">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <h1>Transformamos <br>Lojas Virtuais em <br>Ecossistemas de <br>Vendas de Alta Performance.</h1>
+                        <p>Focamos em PMEs que buscam escala, recorrência e lucro real através de ciência aplicada ao
+                            e-commerce.</p>
+                        <div class="hero-btns">
+                            <a href="#contato" class="btn btn-primary">Receber Diagnóstico</a>
+                            <a href="#metodologia" class="btn btn-secondary">Conhecer Método</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="stat-card">
+                            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Crescimento
+                                Mensal</span>
+                            <span style="font-size: 1.5rem; font-weight: 700;" class="growth-positive">+127%</span>
+                        </div>
+                        <div class="stat-card">
+                            <span
+                                style="font-size: 0.8rem; color: var(--text-muted); display: block;">Faturamento</span>
+                            <span style="font-size: 1.5rem; font-weight: 700;">R$ 142.500,00</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Value Prop Section -->
-        <section class="value-prop">
+        <!-- Scenario Section -->
+        <section id="cenario">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <span
-                        style="color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 0.8rem;">O
-                        e-Commerce mudou.</span>
-                    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Ter apenas um site não basta.</h2>
-                </div>
-                <div class="grid">
-                    <div class="card">
-                        <div style="color: var(--primary); margin-bottom: 1.5rem;">⚡</div>
-                        <h3>CAC Explosivo</h3>
-                        <p>O custo de aquisição não para de subir. Escalamos sem depender apenas de mídia paga paga
-                            através de retenção inteligente.</p>
-                    </div>
-                    <div class="card">
-                        <div style="color: var(--primary); margin-bottom: 1.5rem;">📉</div>
-                        <h3>Desorganização de Métricas</h3>
-                        <p>Faltam dados reais? Criamos dashboards em tempo real para tomada de decisão baseada em lucro
-                            líquido, não apenas ROAS.</p>
-                    </div>
-                    <div class="card">
-                        <div style="color: var(--primary); margin-bottom: 1.5rem;">🔄</div>
-                        <h3>Abandono de Carrinho</h3>
-                        <p>Recuperação automatizada via WhatsApp e Email que realmente converte, transformando leads
-                            "frios" em compradores fiéis.</p>
-                    </div>
+                <div class="section-title">
+                    <h2>O e-Commerce mudou.<br>Ter apenas um site não basta.</h2>
+                    <p style="max-width: 700px; margin: 1.5rem auto 0;">O mercado está mais competitivo, os custos de
+                        mídia explodiram e a desorganização técnica impede o crescimento estruturado.</p>
                 </div>
             </div>
         </section>
+
         <!-- Services Section (Dark) -->
-        <section class="dark-section" id="solucoes">
+        <section class="dark-section" id="servicos">
             <div class="container">
-                <div style="margin-bottom: 4rem;">
-                    <span class="badge">LOGUE O SEU NEGÓCIO</span>
-                    <h2>Full Commerce & Growth</h2>
-                    <p style="color: #94a3b8; max-width: 600px;">Infraestrutura robusta, marketing de alta performance e
-                        um CRM que realmente converte. Tudo o que seu e-commerce precisa para decolar.</p>
+                <div class="section-title">
+                    <h2 style="color: white;">Full Commerce & Growth</h2>
+                    <p>Soluções integradas para dominar cada etapa da jornada de compra.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="icon-box">🏛️</div>
-                        <h4>Infraestrutura & Setup</h4>
-                        <p>Firmeza operacional para escalar sem preocupações técnicas.</p>
-                        <ul class="service-list">
-                            <li>Gestão de Plataformas</li>
-                            <li>Integração de APIs</li>
-                        </ul>
-                        <a href="#" style="color: #fff; font-size: 0.8rem; text-decoration: none;">Mais sobre →</a>
+                        <h3>Infraestrutura & Setup</h3>
+                        <p>Tecnologia escalável e checkouts otimizados para converter visitantes em compradores
+                            compulsivos.</p>
                     </div>
                     <div class="service-card">
-                        <div class="icon-box">📈</div>
-                        <h4>Performance & Tráfego</h4>
-                        <p>Foco total em ROI e CPA que tragam lucro real, não apenas likes.</p>
-                        <ul class="service-list">
-                            <li>Meta & Google Ads</li>
-                            <li>Gestão de Audiências</li>
-                        </ul>
-                        <a href="#" style="color: #fff; font-size: 0.8rem; text-decoration: none;">Mais sobre →</a>
+                        <h3>Performance & Tráfego</h3>
+                        <p>Gestão de mídia focada no retorno sobre o investimento e escalabilidade de audiências.</p>
                     </div>
                     <div class="service-card">
-                        <div class="icon-box">🤖</div>
-                        <h4>Retenção & CRM</h4>
-                        <p>Recupere até 30% das vendas perdidas com automações poderosas.</p>
-                        <ul class="service-list">
-                            <li>Automação de WhatsApp</li>
-                            <li>E-mail Marketing Ágil</li>
-                        </ul>
-                        <a href="#" style="color: #fff; font-size: 0.8rem; text-decoration: none;">Mais sobre →</a>
+                        <h3>Retenção & CRM</h3>
+                        <p>Diminui seu custo de aquisição através de réguas de automação e fidelização de clientes.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Marketplaces</h3>
+                        <p>Presença sólida nos maiores canais de venda do país com gestão centralizada.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Design & CRO</h3>
+                        <p>Experiência do usuário (UX) pautada em dados para aumentar a taxa de conversão final.</p>
+                    </div>
+                    <div class="service-card" style="border-color: var(--primary);">
+                        <h3>Growth Strategy</h3>
+                        <p>Consultoria estratégica para identificar alavancas de crescimento no seu nicho específico.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Challenges Section -->
-        <section id="desafios">
+        <!-- Segments Section -->
+        <section id="nichos">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <span style="color: var(--primary); font-weight: 600;"># agimos na causa</span>
-                    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Especialistas nos Seus Desafios</h2>
-                    <p style="color: var(--text-muted);">Não fazemos apenas o básico. Resolvemos os gargalos que impedem
-                        o seu e-commerce de atingir o próximo nível.</p>
+                <div class="section-title">
+                    <h2>Especialistas no seu Nicho</h2>
+                    <p>Dominamos o comportamento de compra nos principais segmentos do e-commerce.</p>
                 </div>
-                <div class="grid">
-                    <div class="card" style="text-align: center;">
-                        <div
-                            style="background: #fee2e2; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary);">
-                            🌐</div>
-                        <h3>Dificuldade de Escala</h3>
-                        <p>Seu site trava ou suas campanhas não aguentam volume? Nós preparamos o terreno.</p>
-                    </div>
-                    <div class="card" style="text-align: center;">
-                        <div
-                            style="background: #fee2e2; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--primary);">
-                            👤</div>
-                        <h3>Aquisição Cara demais</h3>
-                        <p>O lucro está sendo engolido pelo Facebook? Trabalhamos canais alternativos e retenção.</p>
-                    </div>
+                <div class="nichos-grid">
+                    <div class="nicho-card">Moda & Acessórios</div>
+                    <div class="nicho-card">Saúde & Beleza</div>
+                    <div class="nicho-card">Pet Shop</div>
+                    <div class="nicho-card">Casa & Decoração</div>
                 </div>
             </div>
         </section>
+
         <!-- Methodology Section -->
-        <section id="metodologia" style="background: var(--bg-light);">
+        <section id="metodologia">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <span style="color: var(--primary); font-weight: 600;"># Nosso Processo</span>
-                    <h2 style="font-size: 2.5rem; margin-top: 1rem;">Do Diagnóstico ao Resultado</h2>
-                    <p style="color: var(--text-muted);">Um acompanhamento ponta a ponta, focado na escalabilidade do
-                        seu negócio.</p>
+                <div class="section-title">
+                    <h2>Do Diagnóstico ao Resultado</h2>
+                    <p>Nosso processo estruturado para levar seu e-commerce ao topo.</p>
                 </div>
                 <div class="steps-grid">
-                    <div class="step-card">
+                    <div class="step">
                         <div class="step-number">01</div>
                         <h4>Diagnóstico</h4>
-                        <p>Análise profunda de dados, funil de vendas e gargalos operacionais.</p>
                     </div>
-                    <div class="step-card">
+                    <div class="step">
                         <div class="step-number">02</div>
-                        <h4>Análise de Dados</h4>
-                        <p>Cruzamento de métricas para identificar as maiores oportunidades.</p>
+                        <h4>Análise</h4>
                     </div>
-                    <div class="step-card">
+                    <div class="step">
                         <div class="step-number">03</div>
-                        <h4>Design de Solução</h4>
-                        <p>Desenvolvimento da estratégia e arquitetura personalizada.</p>
+                        <h4>Design</h4>
                     </div>
-                    <div class="step-card">
+                    <div class="step">
                         <div class="step-number">04</div>
-                        <h4>Plano de Ação</h4>
-                        <p>Cronograma detalhado e execução técnica agressiva.</p>
+                        <h4>Ação</h4>
                     </div>
-                    <div class="step-card">
+                    <div class="step">
                         <div class="step-number">05</div>
-                        <h4>Execução</h4>
-                        <p>Implementação, testes A/B e otimização contínua da escala.</p>
+                        <h4>Otimização</h4>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq">
+        <!-- Stack Section -->
+        <section>
             <div class="container">
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <h2 style="font-size: 2.5rem;">Perguntas Frequentes</h2>
+                <div class="stack-logos">
+                    <span>Nuvemshop</span>
+                    <span>Shopify</span>
+                    <span>Google Ads</span>
+                    <span>RD Station</span>
+                    <span>Bling</span>
+                    <span>Tiny</span>
                 </div>
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <div class="faq-question">O que está incluso no Full Commerce & Growth? <span>+</span></div>
-                        <div class="faq-answer">Oferecemos gestão completa: desde a infraestrutura da plataforma até a
-                            execução de campanhas de tráfego e automação de CRM.</div>
+            </div>
+        </section>
+
+        <!-- Contact/Form Section -->
+        <section id="contato">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <h2>Pronto para escalar?</h2>
+                        <p style="margin-top: 1rem;">Fale com um especialista agora e receba um diagnóstico
+                            personalizado do seu e-commerce.</p>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Como funciona o diagnóstico individualizado? <span>+</span></div>
-                        <div class="faq-answer">Analisamos seu Google Analytics, Meta Ads e dados de back-end do
-                            e-commerce para encontrar onde você está perdendo dinheiro.</div>
+                    <div style="grid-column: span 2;">
+                        <!-- Simplified Form Mockup -->
+                        <div style="background: #f8fafc; padding: 2rem; border-radius: 12px;">
+                            <p style="margin-bottom: 1rem; color: var(--text-muted);">Formulário de Contato</p>
+                            <!-- Actual form tags would go here -->
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contato">
+    <footer>
         <div class="container">
-            <div class="contact-grid">
+            <div class="footer-grid">
                 <div>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Sua dúvida não está aqui?</h2>
-                    <p style="margin-bottom: 2rem;">Entre em contato com nossos especialistas e descubra como podemos
-                        acelerar seu negócio.</p>
-                    <div style="background: #fff; padding: 2rem; border-radius: 1rem; box-shadow: var(--card-shadow);">
-                        <p><strong>E-mail:</strong> contato@gobee.com.br</p>
-                        <p><strong>WhatsApp:</strong> +55 (11) 99999-9999</p>
-                    </div>
-                </div>
-                <form style="background: #fff; padding: 3rem; border-radius: 1.5rem; box-shadow: var(--card-shadow);">
-                    <div class="form-group">
-                        <label>Nome Completo</label>
-                        <input type="text" placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label>E-mail Corporativo</label>
-                        <input type="email" placeholder="seu@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Sua Empresa</label>
-                        <input type="text" placeholder="Nome da sua loja">
-                    </div>
-                    <div class="form-group">
-                        <label>Mensagem</label>
-                        <textarea rows="4" placeholder="Como podemos ajudar?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-accent" style="width: 100%;">Enviar Solicitação</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    </main>
-
-    <footer style="background: var(--dark-bg); color: var(--white); padding: 5rem 0;">
-        <div class="container">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; text-align: left;">
-                <div style="grid-column: span 2;">
-                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="40"
-                        style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
-                    <p style="color: #94a3b8; max-width: 300px;">Transformamos Lojas Virtuais em Ecossistemas de Vendas
-                        de Alta Performance.</p>
+                    <img src="assets/images/gobee-logo.png" alt="GoBee" height="24">
+                    <p style="margin-top: 1rem; color: var(--text-muted);">Transformamos Lojas Virtuais em Ecossistemas
+                        de Vendas de Alta Performance.</p>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 1.5rem;">Soluções</h4>
-                    <ul style="list-style: none; color: #94a3b8; font-size: 0.9rem;">
-                        <li style="margin-bottom: 0.5rem;">Full Commerce</li>
-                        <li style="margin-bottom: 0.5rem;">CRO & Performance</li>
-                        <li style="margin-bottom: 0.5rem;">CRM & Retenção</li>
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#metodologia">Método</a></li>
+                        <li><a href="#contato">Contato</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 style="margin-bottom: 1.5rem;">Empresa</h4>
-                    <ul style="list-style: none; color: #94a3b8; font-size: 0.9rem;">
-                        <li style="margin-bottom: 0.5rem;">Sobre Nós</li>
-                        <li style="margin-bottom: 0.5rem;">Metodologia</li>
-                        <li style="margin-bottom: 0.5rem;">Contato</li>
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@gobee.com.br">contato@gobee.com.br</a></li>
                     </ul>
                 </div>
-            </div>
-            <div
-                style="border-top: 1px solid #1f2937; margin-top: 4rem; padding-top: 2rem; color: #475569; font-size: 0.8rem; text-align: center;">
-                &copy; 2026 GoBee. Todos os direitos reservados.
             </div>
         </div>
     </footer>
