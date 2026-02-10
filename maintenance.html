@@ -51,14 +51,15 @@
             z-index: 10;
         }
 
-        .logo {
-            font-size: 3rem;
-            font-weight: 600;
+        .logo-container {
             margin-bottom: 2rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+        }
+
+        .logo-img {
+            max-width: 250px;
+            height: auto;
+            /* White mask filter: makes dark/black logos white */
+            filter: brightness(0) invert(1);
         }
 
         h1 {
@@ -141,7 +142,9 @@
     </div>
 
     <div class="container">
-        <div class="logo">GoBee</div>
+        <div class="logo-container">
+            <img src="assets/images/gobee-logo.png" alt="GoBee Logo" class="logo-img">
+        </div>
         <h1>Estamos construindo algo incrível.</h1>
         <p>Prepare-se para uma nova experiência digital. Em breve, a GoBee estará online com soluções completas para
             você.</p>
