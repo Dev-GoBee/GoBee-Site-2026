@@ -12,7 +12,8 @@
                 extend: {
                     colors: {
                         'gobee-dark': '#0F172A',
-                        'gobee-yellow': '#FACC15',
+                        'gobee-rose': '#ee1d54',
+                        'gobee-rose-dark': '#d11a4a',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -29,7 +30,7 @@
         }
         @layer components {
             .btn-primary {
-                @apply bg-gobee-dark text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gray-800 flex items-center justify-center;
+                @apply bg-gobee-rose text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gobee-rose-dark flex items-center justify-center;
             }
             .btn-outline {
                 @apply bg-white text-gobee-dark border border-gray-300 px-8 py-4 rounded-lg font-semibold transition-all hover:bg-gray-50 flex items-center justify-center;
@@ -50,13 +51,13 @@
                 </div>
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#servicos"
-                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Soluções</a>
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Soluções</a>
                     <a href="#nichos"
-                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Segmentos</a>
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Segmentos</a>
                     <a href="#metodologia"
-                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Metodologia</a>
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Metodologia</a>
                     <a href="#faq"
-                        class="text-sm font-medium text-gray-700 hover:text-gobee-dark transition-colors">Dúvidas</a>
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Dúvidas</a>
                 </nav>
                 <div class="hidden md:block">
                     <button onclick="document.getElementById('contato').scrollIntoView()"
@@ -70,18 +71,18 @@
     <main>
         <!-- Hero Section -->
         <section class="relative bg-gray-50 pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gobee-yellow/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-gobee-rose/5 rounded-full blur-3xl"></div>
             <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="space-y-8">
                         <div
                             class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
-                            <span class="flex h-2 w-2 rounded-full bg-green-500"></span>
+                            <span class="flex h-2 w-2 rounded-full bg-gobee-rose"></span>
                             <span class="text-sm font-medium text-gray-600">Growth Partner & Full Commerce</span>
                         </div>
                         <h1 class="text-4xl lg:text-5xl xl:text-[68px] font-extrabold text-gobee-dark leading-tight">
                             Transformamos Lojas Virtuais em <br><span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-gobee-yellow to-rose-800">Ecossistemas
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-gobee-rose to-rose-900">Ecossistemas
                                 de Vendas</span> de Alta Performance.
                         </h1>
                         <p class="text-xl text-gray-600 leading-relaxed max-w-lg">Do setup tecnológico à automação de
@@ -103,7 +104,7 @@
                                         do Ecossistema</span>
                                     <span class="font-bold text-gray-800 text-lg">Performance Geral</span>
                                 </div>
-                                <span class="bg-green-100 text-green-800 text-xs px-3 py-1.5 rounded-full font-bold">
+                                <span class="bg-rose-50 text-gobee-rose text-xs px-3 py-1.5 rounded-full font-bold">
                                     +127% Crescimento
                                 </span>
                             </div>
@@ -120,9 +121,9 @@
                                         class="w-full bg-gobee-dark/5 rounded-t-lg h-40 transition-all hover:bg-gobee-dark/10">
                                     </div>
                                     <div
-                                        class="w-full bg-gobee-yellow/20 rounded-t-lg h-48 transition-all hover:bg-gobee-yellow/30 relative">
+                                        class="w-full bg-gobee-rose/20 rounded-t-lg h-48 transition-all hover:bg-gobee-rose/30 relative">
                                         <div
-                                            class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gobee-dark rounded-full border-4 border-white shadow-lg animate-pulse">
+                                            class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gobee-rose rounded-full border-4 border-white shadow-lg animate-pulse">
                                         </div>
                                     </div>
                                 </div>
@@ -133,14 +134,14 @@
                                     </div>
                                     <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
                                         <span class="text-xs text-gray-500 block">ROI Médio</span>
-                                        <span class="text-xl font-bold text-green-600">8.4x</span>
+                                        <span class="text-xl font-bold text-gobee-rose">8.4x</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Decorative background shapes -->
                         <div
-                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-gobee-yellow/5 to-rose-500/5 rounded-full blur-3xl -z-10">
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-gobee-rose/5 to-rose-500/5 rounded-full blur-3xl -z-10">
                         </div>
                     </div>
                 </div>
@@ -151,7 +152,7 @@
         <section id="cenario" class="py-24 bg-white scroll-mt-28">
             <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-20 flex flex-col items-center">
-                    <span class="text-gobee-yellow font-bold uppercase tracking-widest text-sm mb-4"># o mercado
+                    <span class="text-gobee-rose font-bold uppercase tracking-widest text-sm mb-4"># o mercado
                         mudou</span>
                     <h3 class="text-3xl md:text-5xl font-extrabold text-gobee-dark leading-tight">
                         O e-Commerce mudou.<br> Ter apenas um site não basta.
@@ -159,30 +160,51 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-red-200 transition-all hover:shadow-xl">
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
-                            class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            ⚡</div>
+                            class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-trending-down">
+                                <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+                                <polyline points="16 17 22 17 22 11"></polyline>
+                            </svg>
+                        </div>
                         <h4 class="text-2xl font-bold text-gray-900 mb-4">CAC Explosivo</h4>
                         <p class="text-gray-600 leading-relaxed text-lg">O custo do tráfego pago dobrou nos últimos
                             anos. Se você depende 100% de novos clientes para vender, sua margem está sendo corroída dia
                             após dia.</p>
                     </div>
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-rose-200 transition-all hover:shadow-xl">
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
-                            class="w-14 h-14 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            ⚙️</div>
+                            class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-alert-triangle">
+                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z">
+                                </path>
+                                <path d="M12 9v4"></path>
+                                <path d="M12 17h.01"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-2xl font-bold text-gray-900 mb-4">Desorganização Técnica</h4>
                         <p class="text-gray-600 leading-relaxed text-lg">ERPs que não batem estoque com Marketplaces.
                             Checkout que trava. Site lento no mobile. A falta de infraestrutura é o teto do seu
                             faturamento.</p>
                     </div>
                     <div
-                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-yellow transition-all hover:shadow-xl">
+                        class="group bg-gray-50 p-10 rounded-2xl border border-gray-100 hover:border-gobee-rose transition-all hover:shadow-xl">
                         <div
-                            class="w-14 h-14 bg-yellow-100 text-gobee-yellow rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                            🐝</div>
+                            class="w-14 h-14 bg-rose-50 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-target">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
                         <h4 class="text-2xl font-bold text-gray-900 mb-4">A Solução GoBee</h4>
                         <p class="text-gray-600 leading-relaxed text-lg">Unimos Expertise Técnica com Alta Performance.
                             Focamos em aumentar a Retenção (LTV) e o Lucro Líquido, não apenas cliques e ROAS
@@ -205,60 +227,99 @@
                     <div class="h-px flex-grow bg-white/10 hidden xl:block mx-12"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                    <!-- Service cards as extracted -->
+                    <!-- Service cards with SVGs -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
-                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🏢</div>
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-database">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                <path d="M3 12A9 3 0 0 0 21 12"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-xl font-bold mb-3">Infraestrutura & Setup</h4>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Migração segura para plataformas enterprise (Nuvemshop/Shopify), APIs e Integrações de ERP
                             (Bling/Tiny).</p>
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
-                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">📈</div>
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-megaphone">
+                                <path d="m3 11 18-5v12L3 14v-3z"></path>
+                                <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-xl font-bold mb-3">Performance & Tráfego</h4>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Gestão de Meta e Google Ads focada em CPA/ROI real. Escala agressiva através de Segmentação
                             e Criativos de Alta Conversão.</p>
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
-                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🤖</div>
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-repeat">
+                                <path d="m17 2 4 4-4 4"></path>
+                                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                                <path d="m7 22-4-4 4-4"></path>
+                                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-xl font-bold mb-3">Retenção & CRM</h4>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Aumentamos seu LTV com Réguas de Automação no WhatsApp e E-mail, recuperando carrinhos e
                             gerando re-compra constante.</p>
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-yellow/30 group">
-                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🛍️</div>
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-shopping-bag">
+                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                                <path d="M3 6h18"></path>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-xl font-bold mb-3">Marketplaces</h4>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             Gestão estratégica no Mercado Livre, Magalu e Amazon. Posicionamento, Reputação e Campanhas
                             de Performance internas.</p>
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
                             Mais →</a>
                     </div>
                     <div
-                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-yellow/50 bg-white/10 group">
-                        <div class="text-3xl mb-6 group-hover:scale-110 transition-transform">🎨</div>
+                        class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-rose/50 bg-white/10 group">
+                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-smartphone">
+                                <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
+                                <path d="M12 18h.01"></path>
+                            </svg>
+                        </div>
                         <h4 class="text-xl font-bold mb-3">Design & CRO</h4>
                         <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
                             UI/UX focado em vender mais. Otimizamos sua Taxa de Conversão removendo fricções na jornada
                             de compra do cliente.</p>
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-yellow hover:text-white transition-colors">Ver
+                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
                             Mais →</a>
                     </div>
                 </div>
@@ -276,22 +337,63 @@
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-4xl mb-4">👕</div>
+                        <div class="text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-shirt">
+                                <path
+                                    d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z">
+                                </path>
+                            </svg>
+                        </div>
                         <span class="font-bold text-gray-900">Moda & Acessórios</span>
                     </div>
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-4xl mb-4">💄</div>
+                        <div class="text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-sparkles">
+                                <path
+                                    d="m12 3 1.912 3.559L17.5 8.5l-3.588 1.941L12 14l-1.912-3.559L6.5 8.5l3.588-1.941L12 3z">
+                                </path>
+                                <path d="m5 3 1.25 2L8 5 6.25 6 5 8l-1.25-2L2 5l1.75-2L5 3z"></path>
+                                <path d="m19 17 1.25 2L22 19l-1.75 1 1.25 2-2-1.25L17 22l1-1.75-2-1.25 2 1.25z"></path>
+                            </svg>
+                        </div>
                         <span class="font-bold text-gray-900">Saúde & Beleza</span>
                     </div>
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-4xl mb-4">🐕</div>
+                        <div class="text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-dog">
+                                <path
+                                    d="M10 5.172C10 3.742 8.835 2 7 2c-2.42 0-4 1.58-4 4 0 3 2.5 5 2.5 5L12 11l6.5 0s2.5-2 2.5-5c0-2.42-1.58-4-4-4-1.835 0-3 1.742-3 3.172">
+                                </path>
+                                <path
+                                    d="M14 6.12c0 1.536 1.8 3.007 3.3 3.007 1.5 0 2.7-1.125 2.7-2.661s-1.2-2.346-2.7-2.346-3.3 1.47-3.3 3z">
+                                </path>
+                                <path
+                                    d="M10 6.12C10 4.584 8.2 3.113 6.7 3.113c-1.5 0-2.7 1.125-2.7 2.661s1.2 2.346 2.7 2.346 3.3-1.47 3.3-3z">
+                                </path>
+                                <path d="M12 14v4"></path>
+                                <path d="M10 18h4"></path>
+                            </svg>
+                        </div>
                         <span class="font-bold text-gray-900">Pet Shop</span>
                     </div>
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-4xl mb-4">🏠</div>
+                        <div class="text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-home">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
                         <span class="font-bold text-gray-900">Casa & Decoração</span>
                     </div>
                 </div>
@@ -310,7 +412,7 @@
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
-                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             01</div>
                         <h4 class="text-xl font-bold text-gray-900 mb-3">Diagnóstico</h4>
                         <p class="text-gray-600">Analisamos seu nicho, faturamento atual e principais dores
@@ -319,7 +421,7 @@
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
-                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             02</div>
                         <h4 class="text-xl font-bold text-gray-900 mb-3">Análise de Gestão</h4>
                         <p class="text-gray-600">Entendemos os números para saber em qual alavanca puxar primeiro para
@@ -328,7 +430,7 @@
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
-                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             03</div>
                         <h4 class="text-xl font-bold text-gray-900 mb-3">Design da Solução</h4>
                         <p class="text-gray-600">Desenhamos a estratégia técnica e criativa sob medida para o seu
@@ -337,7 +439,7 @@
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
-                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             04</div>
                         <h4 class="text-xl font-bold text-gray-900 mb-3">Plano de Ação</h4>
                         <p class="text-gray-600">Cronograma agressivo de implementações focado nos KPIs acordados.</p>
@@ -345,7 +447,7 @@
                     <div
                         class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
                         <div
-                            class="w-14 h-14 rounded-full bg-gobee-dark text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
+                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
                             05</div>
                         <h4 class="text-xl font-bold text-gray-900 mb-3">Escala & Otimização</h4>
                         <p class="text-gray-600">Mão na massa e monitoramento em tempo real para escalar seu faturamento
@@ -383,26 +485,26 @@
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-gray-700">Seu Nome</label>
                                     <input type="text" placeholder="Nome completo"
-                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="text-sm font-bold text-gray-700">WhatsApp</label>
                                     <input type="text" placeholder="(DD) 99999-9999"
-                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
                                 </div>
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-gray-700">E-mail Corporativo</label>
                                 <input type="email" placeholder="seu@email.com"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all">
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-gray-700">Qual o seu maior desafio hoje?</label>
                                 <textarea placeholder="Conte-nos brevemente..." rows="4"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-yellow outline-none transition-all"></textarea>
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all"></textarea>
                             </div>
                             <button type="submit"
-                                class="w-full py-5 bg-gobee-dark text-white rounded-xl font-bold text-lg hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
+                                class="w-full py-5 bg-gobee-rose text-white rounded-xl font-bold text-lg hover:bg-gobee-rose-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
                                 Solicitação →</button>
                         </form>
                     </div>
@@ -425,17 +527,17 @@
                     <div class="space-y-4">
                         <h4 class="font-bold text-gobee-dark">Soluções</h4>
                         <ul class="space-y-2 text-sm text-gray-500">
-                            <li><a href="#" class="hover:text-gobee-dark">Performance</a></li>
-                            <li><a href="#" class="hover:text-gobee-dark">Full Commerce</a></li>
-                            <li><a href="#" class="hover:text-gobee-dark">Design CRO</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Performance</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Full Commerce</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Design CRO</a></li>
                         </ul>
                     </div>
                     <div class="space-y-4">
                         <h4 class="font-bold text-gobee-dark">Empresa</h4>
                         <ul class="space-y-2 text-sm text-gray-500">
-                            <li><a href="#" class="hover:text-gobee-dark">Sobre Nós</a></li>
-                            <li><a href="#" class="hover:text-gobee-dark">Metodologia</a></li>
-                            <li><a href="#" class="hover:text-gobee-dark">Blog</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Sobre Nós</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Metodologia</a></li>
+                            <li><a href="#" class="hover:text-gobee-rose">Blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -444,8 +546,8 @@
                 class="mt-16 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-400">
                 <span>&copy; 2026 GoBee Performance. Todos os direitos reservados.</span>
                 <div class="space-x-4">
-                    <a href="#" class="hover:text-gobee-dark">Privacidade</a>
-                    <a href="#" class="hover:text-gobee-dark">Termos</a>
+                    <a href="#" class="hover:text-gobee-rose">Privacidade</a>
+                    <a href="#" class="hover:text-gobee-rose">Termos</a>
                 </div>
             </div>
         </div>
