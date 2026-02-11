@@ -45,19 +45,21 @@
             .section-gobee {
                 @apply py-[70px];
             }
+            .py-16 {
+                padding-bottom: 0rem !important;
+            }
         }
     </style>
 </head>
 
 <body class="bg-white text-gray-900 overflow-x-hidden antialiased">
     <!-- Header -->
-    <header
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-sm py-3 border-b border-gray-100">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
         <div class="container-gobee">
             <div class="flex justify-between items-center">
                 <div class="flex items-center cursor-pointer">
-                    <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
-                        class="w-auto transition-all duration-300 h-8">
+                    <img id="logo" src="assets/images/gobee-logo.png" alt="GoBee"
+                        class="w-auto transition-all duration-300 h-10">
                 </div>
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#servicos"
@@ -70,13 +72,37 @@
                         class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Dúvidas</a>
                 </nav>
                 <div class="hidden md:block">
-                    <button onclick="document.getElementById('contato').scrollIntoView()"
-                        class="px-6 py-2.5 rounded-[10.5px] font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md">Falar
-                        com Especialista</button>
+                    <button
+                        class="px-6 py-2.5 rounded-[10.5px] font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md"
+                        onclick="openDiagnosticModal()">Falar com Especialista</button>
                 </div>
             </div>
         </div>
     </header>
+
+    <script>
+        // Dynamic header on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            const logo = document.getElementById('logo');
+
+            if (window.scrollY > 50) {
+                // Scrolled state: smaller logo, visible border, white background
+                header.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-gray-100');
+                header.classList.remove('py-4');
+                header.classList.add('py-3');
+                logo.classList.remove('h-10');
+                logo.classList.add('h-8');
+            } else {
+                // Top state: larger logo, no border, transparent
+                header.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-gray-100');
+                header.classList.remove('py-3');
+                header.classList.add('py-4');
+                logo.classList.remove('h-8');
+                logo.classList.add('h-10');
+            }
+        });
+    </script>
 
     <main>
         <!-- Hero Section -->
@@ -100,61 +126,135 @@
                             buscam escala, recorrência e lucro líquido real.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                            <button class="btn-primary">Receber Diagnóstico</button>
-                            <button class="btn-outline">Conhecer Método</button>
+                            <button onclick="openDiagnosticModal()"
+                                class="px-8 py-4 bg-gray-900 text-white font-bold rounded-[10.5px] hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-sm md:text-base flex items-center justify-center gap-2">
+                                Receber diagnóstico
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                    <path d="M5 12h14" />
+                                    <path d="m12 5 7 7-7 7" />
+                                </svg>
+                            </button>
+                            <button
+                                onclick="document.getElementById('metodologia').scrollIntoView({behavior: 'smooth'})"
+                                class="px-8 py-4 bg-white text-gray-900 border border-gray-200 font-bold rounded-[10.5px] hover:bg-gray-50 transition-all text-sm md:text-base">
+                                Conhecer método
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Performance Chart Card -->
-                    <div class="relative hidden lg:block">
-                        <div class="bg-white p-[28px] rounded-[10.5px] shadow-2xl border border-gray-100 relative z-10">
-                            <div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
-                                <div>
-                                    <span
-                                        class="text-xs text-gray-400 font-bold uppercase tracking-wider block mb-1">Status
-                                        do Ecossistema</span>
-                                    <span class="font-bold text-gray-800 text-lg">Performance Geral</span>
-                                </div>
-                                <span class="bg-rose-50 text-gobee-rose text-[12px] px-3 py-1.5 rounded-full font-bold">
+                    <!-- Metrics Card -->
+                    <div class="relative">
+                        <div class="bg-white rounded-[20px] shadow-2xl p-6 border border-gray-100">
+                            <!-- Performance Header -->
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-base font-bold text-gray-900">Performance Geral</h3>
+                                <span class="bg-green-50 text-green-600 text-[11px] px-2.5 py-1 rounded-full font-bold">
                                     +127% Crescimento
                                 </span>
                             </div>
-                            <!-- Mockup Chart -->
-                            <div class="space-y-6">
-                                <div class="flex items-end gap-3 h-48">
-                                    <div class="w-full bg-gray-50 rounded-t-lg h-24 transition-all hover:bg-gray-100">
-                                    </div>
-                                    <div class="w-full bg-gray-50 rounded-t-lg h-32 transition-all hover:bg-gray-100">
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-t-lg h-28 transition-all hover:bg-gray-200">
-                                    </div>
-                                    <div
-                                        class="w-full bg-gobee-dark/5 rounded-t-lg h-40 transition-all hover:bg-gobee-dark/10">
-                                    </div>
-                                    <div
-                                        class="w-full bg-gobee-rose/20 rounded-t-lg h-48 transition-all hover:bg-gobee-rose/30 relative">
-                                        <div
-                                            class="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-gobee-rose rounded-full border-4 border-white shadow-lg animate-pulse">
-                                        </div>
+
+                            <!-- Chart Area with SVG -->
+                            <div
+                                class="relative mb-6 bg-gradient-to-b from-green-50 to-transparent rounded-lg p-4 h-32">
+                                <!-- Revenue Label -->
+                                <div
+                                    class="absolute top-3 right-3 bg-gray-900 text-white text-[11px] px-2.5 py-1 rounded-md font-bold">
+                                    R$ 142,5k
+                                </div>
+
+                                <!-- SVG Line Chart -->
+                                <svg class="w-full h-full" viewBox="0 0 400 100" preserveAspectRatio="none">
+                                    <!-- Grid lines (subtle) -->
+                                    <line x1="0" y1="25" x2="400" y2="25" stroke="#e5e7eb" stroke-width="0.5" />
+                                    <line x1="0" y1="50" x2="400" y2="50" stroke="#e5e7eb" stroke-width="0.5" />
+                                    <line x1="0" y1="75" x2="400" y2="75" stroke="#e5e7eb" stroke-width="0.5" />
+
+                                    <!-- Growth line path -->
+                                    <path
+                                        d="M 0 85 L 50 82 L 100 75 L 150 70 L 200 60 L 250 55 L 300 45 L 350 35 L 400 15"
+                                        fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+
+                                    <!-- Area under the line -->
+                                    <path
+                                        d="M 0 85 L 50 82 L 100 75 L 150 70 L 200 60 L 250 55 L 300 45 L 350 35 L 400 15 L 400 100 L 0 100 Z"
+                                        fill="url(#gradient)" opacity="0.3" />
+
+                                    <!-- End point dot -->
+                                    <circle cx="400" cy="15" r="4" fill="#10b981" stroke="white" stroke-width="2">
+                                        <animate attributeName="r" values="4;5.5;4" dur="2s" repeatCount="indefinite" />
+                                    </circle>
+
+                                    <!-- Gradient definition -->
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.4" />
+                                            <stop offset="100%" style="stop-color:#10b981;stop-opacity:0" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+
+                            <!-- CAC and LTV -->
+                            <div class="grid grid-cols-2 gap-6 mb-6 pb-6 border-b border-gray-100">
+                                <div>
+                                    <p class="text-xs text-gray-500 mb-1.5">Custo por Aquisição (CAC)</p>
+                                    <p class="text-3xl font-bold text-gobee-dark">R$ 24,10</p>
+                                    <div class="flex items-center gap-1.5 mt-1.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                            <path d="m18 15-6-6-6 6" />
+                                        </svg>
+                                        <span class="text-xs text-green-600 font-medium">-15% Otimizado</span>
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                        <span class="text-xs text-gray-500 block">Faturamento</span>
-                                        <span class="text-xl font-bold">R$ 142.5k</span>
+                                <div>
+                                    <p class="text-xs text-gray-500 mb-1.5">Lifetime Value (LTV)</p>
+                                    <p class="text-3xl font-bold text-gobee-dark">R$ 480,00</p>
+                                    <div class="flex items-center gap-1.5 mt-1.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                                            <path d="m18 9-6 6-6-6" />
+                                        </svg>
+                                        <span class="text-xs text-green-600 font-medium">+32% c/ CRM</span>
                                     </div>
-                                    <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-                                        <span class="text-xs text-gray-500 block">ROI Médio</span>
-                                        <span class="text-xl font-bold text-gobee-rose">8.4x</span>
+                                </div>
+                            </div>
+
+                            <!-- Progress Bars -->
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5">
+                                        <span class="text-xs font-medium text-gray-700">Infraestrutura</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-gobee-rose rounded-full h-1.5" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5">
+                                        <span class="text-xs font-medium text-gray-700">Tráfego (Ads)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-pink-400 rounded-full h-1.5" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center mb-1.5">
+                                        <span class="text-xs font-medium text-gray-700">Retenção (Email/CRM)</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                        <div class="bg-gray-900 rounded-full h-1.5" style="width: 70%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Decorative background shapes -->
-                        <div
-                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-gobee-rose/5 to-rose-500/5 rounded-full blur-3xl -z-10">
-                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -163,8 +263,19 @@
         <section id="cenario" class="section-gobee bg-white scroll-mt-28">
             <div class="container-gobee">
                 <div class="text-center mb-16 flex flex-col items-center">
-                    <span class="text-gobee-rose font-bold uppercase tracking-widest text-[14px] mb-4"># o mercado
-                        mudou</span>
+                    <div
+                        class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-globe text-gobee-rose">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        <span class="text-sm font-medium text-gray-600">Como está o cenário</span>
+                    </div>
                     <h2 class="text-[31.5px] font-extrabold text-gobee-dark leading-[35px]">
                         O e-Commerce mudou.<br> Ter apenas um site não basta.
                     </h2>
@@ -231,6 +342,17 @@
             <div class="container-gobee">
                 <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div class="space-y-6">
+                        <div
+                            class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-target text-gobee-rose">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                            <span class="text-sm font-medium text-white">Conheça os nossos pilares</span>
+                        </div>
                         <h2 class="text-[31.5px] md:text-[42px] font-bold text-white tracking-tight leading-[48px]">Full
                             Commerce & Growth</h2>
                         <p class="text-gray-400 max-w-2xl text-[17.5px] leading-relaxed">Não entregamos apenas "partes"
@@ -241,11 +363,12 @@
                     <div class="h-px flex-grow bg-white/10 hidden xl:block mx-12"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-[28px]">
-                    <!-- Service cards with SVGs -->
+                    <!-- Service Card 1 -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
-                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[22px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-database">
                                 <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
@@ -253,36 +376,122 @@
                                 <path d="M3 12A9 3 0 0 0 21 12"></path>
                             </svg>
                         </div>
-                        <h3 class="text-[21px] font-bold mb-3">Infraestrutura & Setup</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
-                            Migração segura para plataformas enterprise (Nuvemshop/Shopify), APIs e Integrações de ERP
-                            (Bling/Tiny).</p>
+                        <h3 class="text-[16px] font-bold mb-1">Infraestrutura & Setup</h3>
+                        <span class="text-[11px] text-gobee-rose font-medium mb-4 block">A base da operação.</span>
+                        <div class="min-h-[95px] mb-6">
+                            <p class="text-gray-400 text-[12px] leading-relaxed">
+                                Migração segura (Nuvemshop/Shopify), APIs e Integrações de ERP (Bling/Tiny). Sua casa
+                                digital, sólida.</p>
+                        </div>
+
+                        <div class="h-px bg-white/10 mb-6"></div>
+
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Migração de Dados
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Integração de ERP
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Checkout Transparente
+                            </li>
+                        </ul>
+
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
-                            Mais →</a>
+                            class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gobee-rose transition-colors">
+                            Saber mais
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <!-- Service Card 2 -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
-                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[22px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-megaphone">
                                 <path d="m3 11 18-5v12L3 14v-3z"></path>
                                 <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
                             </svg>
                         </div>
-                        <h3 class="text-[21px] font-bold mb-3">Performance & Tráfego</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
-                            Gestão de Meta e Google Ads focada em CPA/ROI real. Escala agressiva através de Segmentação
-                            e Criativos de Alta Conversão.</p>
+                        <h3 class="text-[16px] font-bold mb-1">Performance & Tráfego</h3>
+                        <span class="text-[11px] text-gobee-rose font-medium mb-4 block">Atração qualificada.</span>
+                        <div class="min-h-[95px] mb-6">
+                            <p class="text-gray-400 text-[12px] leading-relaxed">
+                                Gestão profissional de Google Ads, Meta Ads e Retail Media. Não trazemos apenas cliques,
+                                trazemos compradores.</p>
+                        </div>
+
+                        <div class="h-px bg-white/10 mb-6"></div>
+
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Google & Meta Ads
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Retail Media
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Gestão de ROAS
+                            </li>
+                        </ul>
+
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
-                            Mais →</a>
+                            class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gobee-rose transition-colors">
+                            Saber mais
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <!-- Service Card 3 -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
-                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[22px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-repeat">
                                 <path d="m17 2 4 4-4 4"></path>
@@ -291,18 +500,61 @@
                                 <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
                             </svg>
                         </div>
-                        <h3 class="text-[21px] font-bold mb-3">Retenção & CRM</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
-                            Aumentamos seu LTV com Réguas de Automação no WhatsApp e E-mail, recuperando carrinhos e
-                            gerando re-compra constante.</p>
+                        <h3 class="text-[16px] font-bold mb-1">Retenção & CRM</h3>
+                        <span class="text-[11px] text-gobee-rose font-medium mb-4 block">A mina de ouro.</span>
+                        <div class="min-h-[95px] mb-6">
+                            <p class="text-gray-400 text-[12px] leading-relaxed">
+                                Implementação de ferramentas (edrone/RD Station), recuperação de carrinhos e réguas de
+                                relacionamento para aumentar o LTV.</p>
+                        </div>
+
+                        <div class="h-px bg-white/10 mb-6"></div>
+
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Automação de E-mail
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Recuperação de Carrinho
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Clubes de Fidelidade
+                            </li>
+                        </ul>
+
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
-                            Mais →</a>
+                            class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gobee-rose transition-colors">
+                            Saber mais
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <!-- Service Card 4 -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
-                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[22px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-shopping-bag">
                                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
@@ -310,31 +562,351 @@
                                 <path d="M16 10a4 4 0 0 1-8 0"></path>
                             </svg>
                         </div>
-                        <h3 class="text-[21px] font-bold mb-3">Marketplaces</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
-                            Gestão estratégica no Mercado Livre, Magalu e Amazon. Posicionamento, Reputação e Campanhas
-                            de Performance internas.</p>
+                        <h3 class="text-[16px] font-bold mb-1">Marketplaces</h3>
+                        <span class="text-[11px] text-gobee-rose font-medium mb-4 block">Omnicanalidade real.</span>
+                        <div class="min-h-[95px] mb-6">
+                            <p class="text-gray-400 text-[12px] leading-relaxed">
+                                Gestão de vendas no Mercado Livre e Shopee integradas ao estoque da loja oficial. Um
+                                único
+                                estoque, múltiplos canais.</p>
+                        </div>
+
+                        <div class="h-px bg-white/10 mb-6"></div>
+
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Gestão de Hubs
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Estratégia de Buy Box
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Sincronização Total
+                            </li>
+                        </ul>
+
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
-                            Mais →</a>
+                            class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gobee-rose transition-colors">
+                            Saber mais
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
                     </div>
+
+                    <!-- Service Card 5 -->
                     <div
-                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[28px] hover:bg-white/10 transition-all duration-300 flex flex-col border-gobee-rose/50 bg-white/10 group">
-                        <div class="text-gobee-rose mb-6 group-hover:scale-110 transition-transform">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                        class="bg-white/5 border border-white/10 rounded-[10.5px] p-[22px] hover:bg-white/10 transition-all duration-300 flex flex-col hover:border-gobee-rose/30 group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 text-gobee-rose rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-smartphone">
                                 <rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect>
                                 <path d="M12 18h.01"></path>
                             </svg>
                         </div>
-                        <h3 class="text-[21px] font-bold mb-3">Design & CRO</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed border-b border-white/5 pb-6 mb-6 flex-grow">
-                            UI/UX focado em vender mais. Otimizamos sua Taxa de Conversão removendo fricções na jornada
-                            de compra do cliente.</p>
+                        <h3 class="text-[16px] font-bold mb-1">Design & CRO</h3>
+                        <span class="text-[11px] text-gobee-rose font-medium mb-4 block">Foco em conversão.</span>
+                        <div class="min-h-[95px] mb-6">
+                            <p class="text-gray-400 text-[12px] leading-relaxed">
+                                UX Design focado em mobile e auditoria de taxas de conversão. Não adianta trazer tráfego
+                                se a loja não converte.</p>
+                        </div>
+
+                        <div class="h-px bg-white/10 mb-6"></div>
+
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                UX Mobile-First
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Auditoria de CRO
+                            </li>
+                            <li class="flex items-center gap-2 text-[11px] text-gray-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                    <path d="M20 6 9 17l-5-5" />
+                                </svg>
+                                Design System
+                            </li>
+                        </ul>
+
                         <a href="#"
-                            class="text-xs font-bold uppercase tracking-widest text-gobee-rose hover:text-white transition-colors">Ver
-                            Mais →</a>
+                            class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gobee-rose transition-colors">
+                            Saber mais
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-arrow-up-right">
+                                <path d="M7 17 17 7" />
+                                <path d="M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Methodology Section -->
+        <section id="metodologia" class="section-gobee bg-white">
+            <div class="container-gobee text-center flex flex-col items-center">
+                <div class="mb-20">
+                    <div
+                        class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-git-branch text-gobee-rose">
+                            <line x1="6" y1="3" x2="6" y2="15"></line>
+                            <circle cx="18" cy="6" r="3"></circle>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <path d="M18 9a9 9 0 0 1-9 9"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-gray-600">Nossa Metodologia</span>
+                    </div>
+                    <h2 class="text-[31.5px] font-bold text-gobee-dark leading-[35px]">Do Diagnóstico ao Resultado</h2>
+                    <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-[17.5px] leading-relaxed">Não oferecemos pacotes
+                        de
+                        prateleira. Desenhamos a solução exata baseada na maturidade atual da sua operação.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-16 pb-20">
+                    <!-- Step 1 -->
+                    <div
+                        class="bg-white px-3 py-6 rounded-[10.5px] shadow-xl border border-gray-100 flex flex-col items-center text-center relative group hover:-translate-y-2 transition-transform duration-300 aspect-square justify-center">
+                        <div
+                            class="absolute -top-7 w-14 h-14 bg-gobee-dark text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-lg group-hover:bg-gobee-rose transition-colors">
+                            01</div>
+                        <h3 class="font-bold text-gray-900 mb-4 text-[15.5px] whitespace-nowrap">Diagnóstico</h3>
+                        <p class="text-gray-500 text-[14px] leading-snug">Analisamos seu nicho, faturamento atual e
+                            principais dores (Tech, Tráfego ou Retenção).</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="bg-white px-3 py-6 rounded-[10.5px] shadow-xl border border-gray-100 flex flex-col items-center text-center relative group hover:-translate-y-2 transition-transform duration-300 aspect-square justify-center">
+                        <div
+                            class="absolute -top-7 w-14 h-14 bg-gobee-dark text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-lg group-hover:bg-gobee-rose transition-colors">
+                            02</div>
+                        <h3 class="font-bold text-gray-900 mb-4 text-[15.5px] whitespace-nowrap">Análise de Cenário</h3>
+                        <p class="text-gray-500 text-[14px] leading-snug">Cruzamos seus dados com benchmarks do mercado
+                            para identificar onde está o desperdício de dinheiro.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="bg-white px-3 py-6 rounded-[10.5px] shadow-xl border border-gray-100 flex flex-col items-center text-center relative group hover:-translate-y-2 transition-transform duration-300 aspect-square justify-center">
+                        <div
+                            class="absolute -top-7 w-14 h-14 bg-gobee-dark text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-lg group-hover:bg-gobee-rose transition-colors">
+                            03</div>
+                        <h3 class="font-bold text-gray-900 mb-4 text-[15.5px] whitespace-nowrap">Design da Solução</h3>
+                        <p class="text-gray-500 text-[14px] leading-snug">Definimos a estratégia ideal: Projeto de
+                            Infraestrutura (Setup) ou Aceleração de Vendas (Growth).</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div
+                        class="bg-white px-3 py-6 rounded-[10.5px] shadow-xl border border-gray-100 flex flex-col items-center text-center relative group hover:-translate-y-2 transition-transform duration-300 aspect-square justify-center">
+                        <div
+                            class="absolute -top-7 w-14 h-14 bg-gobee-dark text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-lg group-hover:bg-gobee-rose transition-colors">
+                            04</div>
+                        <h3 class="font-bold text-gray-900 mb-4 text-[15.5px] whitespace-nowrap">Plano de Ação</h3>
+                        <p class="text-gray-500 text-[14px] leading-snug">Cronograma claro de implementação das
+                            ferramentas, integrações e campanhas de mídia.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div
+                        class="bg-white px-3 py-6 rounded-[10.5px] shadow-xl border border-gray-100 flex flex-col items-center text-center relative group hover:-translate-y-2 transition-transform duration-300 aspect-square justify-center">
+                        <div
+                            class="absolute -top-7 w-14 h-14 bg-gobee-dark text-white rounded-full flex items-center justify-center font-bold text-xl border-4 border-white shadow-lg group-hover:bg-gobee-rose transition-colors">
+                            05</div>
+                        <h3 class="font-bold text-gray-900 mb-4 text-[15.5px] whitespace-nowrap">Otimização</h3>
+                        <p class="text-gray-500 text-[14px] leading-snug">Execução com acompanhamento contínuo de KPIs
+                            para garantir ROI e crescimento sustentável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contratação Section -->
+        <section id="contratacao" class="section-gobee bg-white border-t border-gray-50">
+            <div class="container-gobee">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-12">
+                        <div class="space-y-6">
+                            <div
+                                class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm text-sm font-medium text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-file-text text-gobee-rose">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z">
+                                    </path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <line x1="10" y1="9" x2="8" y2="9"></line>
+                                </svg>
+                                <span>Modelos de Contratação</span>
+                            </div>
+                            <h2 class="text-[31.5px] md:text-[42px] font-extrabold text-gobee-dark leading-[48px]">
+                                Flexibilidade para o seu momento</h2>
+                            <p class="text-gray-600 text-[17.5px] leading-relaxed">Seja para resolver um problema
+                                técnico pontual ou para terceirizar a inteligência de crescimento da sua loja, temos o
+                                formato ideal.</p>
+                        </div>
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0 text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-settings">
+                                        <path
+                                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+                                        </path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gobee-dark">Especialista</h4>
+                                    <p class="text-gray-500 text-sm">Resolvemos a infraestrutura técnica necessária.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center flex-shrink-0 text-gobee-rose">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-rocket">
+                                        <path
+                                            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                                        </path>
+                                        <path
+                                            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                                        </path>
+                                        <path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3l1 1"></path>
+                                        <path d="M15 9h5s3.03.55 5 2c2.2 1.62 3 5 3 5l-1 1"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gobee-dark">Growth</h4>
+                                    <p class="text-gray-500 text-sm">Aceleramos o faturamento e a escala do negócio.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Setup Model -->
+                        <div class="bg-gray-50 p-8 rounded-[10.5px] border border-gray-100 flex flex-col">
+                            <h3 class="text-xl font-bold text-gobee-dark mb-2">Projetos Pontuais (Setup)</h3>
+                            <p class="text-sm text-gray-500 mb-8">Para quem precisa arrumar a casa ou migrar de
+                                plataforma.</p>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-600"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-green-500">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Migração de Plataforma</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-600"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-green-500">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Setup de Integrações</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-600"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-green-500">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Auditoria Técnica & CRO</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-600"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-green-500">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Design de Interface</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-600"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-green-500">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Treinamento da Equipe</li>
+                            </ul>
+                            <button onclick="openDiagnosticModal()"
+                                class="w-full py-4 bg-white border border-gray-200 text-gobee-dark rounded-xl font-bold hover:bg-gray-100 transition-all text-sm">Falar
+                                com Consultor</button>
+                        </div>
+                        <!-- Monthly Model -->
+                        <div class="bg-gobee-dark p-8 rounded-[10.5px] shadow-2xl flex flex-col text-white">
+                            <h3 class="text-xl font-bold mb-2">Aceleração Mensal (Growth)</h3>
+                            <p class="text-sm text-gray-400 mb-8">Gestão contínua para escalar vendas e retenção.</p>
+                            <ul class="space-y-4 mb-10 flex-grow">
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Gestão de Tráfego Pago</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Gestão de CRM & E-mail</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Suporte Técnico Evolutivo</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Relatórios de BI</li>
+                                <li class="flex items-center gap-3 text-sm text-gray-300"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-check text-gobee-rose">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg> Consultoria Estratégica</li>
+                            </ul>
+                            <button onclick="openDiagnosticModal()"
+                                class="w-full py-4 bg-gobee-rose text-white rounded-xl font-bold hover:bg-gobee-rose-dark transition-all text-sm">Falar
+                                com Consultor</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,17 +915,30 @@
         <!-- Nichos Section -->
         <section id="nichos" class="section-gobee bg-gray-50">
             <div class="container-gobee">
-                <div class="text-center mb-16">
-                    <h2 class="text-[31.5px] font-bold text-gobee-dark">Especialistas no seu Nicho</h2>
-                    <p class="text-gray-600 mt-4 text-[17.5px]">Dominamos o comportamento de compra nos principais
-                        segmentos.
-                    </p>
+                <div class="text-center mb-16 flex flex-col items-center">
+                    <div
+                        class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-award text-gobee-rose">
+                            <path
+                                d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526">
+                            </path>
+                            <circle cx="12" cy="8" r="6"></circle>
+                        </svg>
+                        <span class="text-sm font-medium text-gray-600">Expertise de Mercado</span>
+                    </div>
+                    <h2 class="text-[31.5px] font-bold text-gobee-dark leading-[35px]">Especialistas nos Seus Desafios
+                    </h2>
+                    <p class="text-gray-600 mt-4 text-[17.5px] max-w-2xl">Não aplicamos "fórmulas mágicas". Entendemos a
+                        dinâmica do seu negócio e aplicamos soluções personalizadas para cada segmento de mercado.</p>
                 </div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-[35px]">
                     <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-gobee-rose mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+                        <div
+                            class="w-16 h-16 bg-gobee-dark text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gobee-rose transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-shirt">
                                 <path
@@ -361,218 +946,1060 @@
                                 </path>
                             </svg>
                         </div>
-                        <span class="font-bold text-gray-900">Moda & Acessórios</span>
+                        <h3 class="font-bold text-gray-900 mb-4 text-xl">Moda & Acessórios</h3>
+                        <p class="text-gray-500 text-sm mb-6">Foco em Social Commerce (Instagram Shop), Provadores
+                            Virtuais e gestão visual de catálogo.</p>
+                        <a href="#"
+                            class="text-sm font-bold text-gobee-dark hover:text-gobee-rose flex items-center gap-2">Ver
+                            estratégia <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg></a>
                     </div>
                     <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-gobee-rose mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+                        <div
+                            class="w-16 h-16 bg-gobee-dark text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gobee-rose transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-sparkles">
+                                stroke-linejoin="round" class="lucide lucide-heart">
                                 <path
-                                    d="m12 3 1.912 3.559L17.5 8.5l-3.588 1.941L12 14l-1.912-3.559L6.5 8.5l3.588-1.941L12 3z">
+                                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
                                 </path>
-                                <path d="m5 3 1.25 2L8 5 6.25 6 5 8l-1.25-2L2 5l1.75-2L5 3z"></path>
-                                <path d="m19 17 1.25 2L22 19l-1.75 1 1.25 2-2-1.25L17 22l1-1.75-2-1.25 2 1.25z"></path>
                             </svg>
                         </div>
-                        <span class="font-bold text-gray-900">Saúde & Beleza</span>
+                        <h3 class="font-bold text-gray-900 mb-4 text-xl">Saúde & Beleza</h3>
+                        <p class="text-gray-500 text-sm mb-6">Estratégias de LTV alto com Clubes de Assinatura e
+                            automação de recompra de produtos.</p>
+                        <a href="#"
+                            class="text-sm font-bold text-gobee-dark hover:text-gobee-rose flex items-center gap-2">Ver
+                            estratégia <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg></a>
                     </div>
                     <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-gobee-rose mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+                        <div
+                            class="w-16 h-16 bg-gobee-dark text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gobee-rose transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-dog">
+                                <path d="M11 15h2" />
+                                <path d="M7 15h2" />
+                                <path d="M15 15h2" />
                                 <path
-                                    d="M10 5.172C10 3.742 8.835 2 7 2c-2.42 0-4 1.58-4 4 0 3 2.5 5 2.5 5L12 11l6.5 0s2.5-2 2.5-5c0-2.42-1.58-4-4-4-1.835 0-3 1.742-3 3.172">
-                                </path>
+                                    d="M2.6 12.3c.4 0 .7.3.7.6v2c0 1.2.9 2.1 2.1 2.1h13.2c1.2 0 2.1-.9 2.1-2.1v-2c0-.4.3-.7.7-.7.4 0 .7.3.7.6v2c0 1.9-1.6 3.5-3.5 3.5H5.4c-1.9 0-3.5-1.6-3.5-3.5v-2c0-.4.3-.7.7-.7Z" />
                                 <path
-                                    d="M14 6.12c0 1.536 1.8 3.007 3.3 3.007 1.5 0 2.7-1.125 2.7-2.661s-1.2-2.346-2.7-2.346-3.3 1.47-3.3 3z">
-                                </path>
-                                <path
-                                    d="M10 6.12C10 4.584 8.2 3.113 6.7 3.113c-1.5 0-2.7 1.125-2.7 2.661s1.2 2.346 2.7 2.346 3.3-1.47 3.3-3z">
-                                </path>
-                                <path d="M12 14v4"></path>
-                                <path d="M10 18h4"></path>
+                                    d="M9 6.8a2.3 2.3 0 0 1 2.3-2.3 2.3 2.3 0 0 1 2.3 2.3c0 1.2-1 2.2-2.3 2.2-1.2 0-2.3-1-2.3-2.2Z" />
+                                <path d="M3.7 7.7a2 2 0 0 1 2-2 2 2 0 0 1 2 2c0 1.1-.9 2-2 2-1.1 0-2-.9-2-2Z" />
+                                <path d="M16.3 7.7a2 2 0 0 0-2-2 2 2 0 0 0-2 2c0 1.1.9 2 2 2 1.1 0 2-.9 2-2Z" />
+                            </svg>
+                            <path
+                                d="M14 6.12c0 1.536 1.8 3.007 3.3 3.007 1.5 0 2.7-1.125 2.7-2.661s-1.2-2.346-2.7-2.346-3.3 1.47-3.3 3z">
+                            </path>
+                            <path
+                                d="M10 6.12C10 4.584 8.2 3.113 6.7 3.113c-1.5 0-2.7 1.125-2.7 2.661s1.2 2.346 2.7 2.346 3.3-1.47 3.3-3z">
+                            </path>
+                            <path d="M12 14v4"></path>
+                            <path d="M10 18h4"></path>
                             </svg>
                         </div>
-                        <span class="font-bold text-gray-900">Pet Shop</span>
+                        <h3 class="font-bold text-gray-900 mb-4 text-xl">Pet Shop</h3>
+                        <p class="text-gray-500 text-sm mb-6">Humanização da marca, SEO local forte e facilidade de
+                            recompra de ração/medicamentos.</p>
+                        <a href="#"
+                            class="text-sm font-bold text-gobee-dark hover:text-gobee-rose flex items-center gap-2">Ver
+                            estratégia <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg></a>
                     </div>
                     <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow">
-                        <div class="text-gobee-rose mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md transition-shadow group">
+                        <div
+                            class="w-16 h-16 bg-gobee-dark text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-gobee-rose transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-home">
-                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                stroke-linejoin="round" class="lucide lucide-armchair">
+                                <path d="M19 10V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v5"></path>
+                                <path d="M3 12v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"></path>
+                                <path d="M8 19v2"></path>
+                                <path d="M16 19v2"></path>
+                                <path d="M21 12H3"></path>
                             </svg>
                         </div>
-                        <span class="font-bold text-gray-900">Casa & Decoração</span>
+                        <h3 class="font-bold text-gray-900 mb-4 text-xl">Casa & Decoração</h3>
+                        <p class="text-gray-500 text-sm mb-6">Configuração avançada de tabelas de frete, logística
+                            complexa e fotografia ambientada.</p>
+                        <a href="#"
+                            class="text-sm font-bold text-gobee-dark hover:text-gobee-rose flex items-center gap-2">Ver
+                            estratégia <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg></a>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Methodology Section -->
-        <section id="metodologia" class="section-gobee bg-white">
-            <div class="container-gobee text-center">
-                <div class="mb-20">
-                    <h2 class="text-[31.5px] font-bold text-gobee-dark leading-[35px]">Do Diagnóstico ao Resultado</h2>
-                    <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-[17.5px] leading-relaxed">Não oferecemos pacotes
-                        de
-                        prateleira. Desenhamos a solução exata baseada na maturidade atual da sua operação.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-[35px]">
-                    <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-                        <div
-                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                            01</div>
-                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Diagnóstico</h3>
-                        <p class="text-gray-600 text-sm">Analisamos seu nicho, faturamento atual e principais dores
-                            operacionais.</p>
-                    </div>
-                    <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-                        <div
-                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                            02</div>
-                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Análise de Gestão</h3>
-                        <p class="text-gray-600 text-sm">Entendemos os números para saber em qual alavanca puxar
-                            primeiro para
-                            maximizar o lucro.</p>
-                    </div>
-                    <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-                        <div
-                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                            03</div>
-                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Design da Solução</h3>
-                        <p class="text-gray-600 text-sm">Desenhamos a estratégia técnica e criativa sob medida para o
-                            seu
-                            público alvo.</p>
-                    </div>
-                    <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-                        <div
-                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                            04</div>
-                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Plano de Ação</h3>
-                        <p class="text-gray-600 text-sm">Cronograma agressivo de implementações focado nos KPIs
-                            acordados.</p>
-                    </div>
-                    <div
-                        class="bg-white p-[28px] rounded-[10.5px] shadow-sm border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-                        <div
-                            class="w-14 h-14 rounded-full bg-gobee-rose text-white flex items-center justify-center font-bold text-xl mb-6 mx-auto">
-                            05</div>
-                        <h3 class="text-[21px] font-bold text-gray-900 mb-3">Escala & Otimização</h3>
-                        <p class="text-gray-600 text-sm">Mão na massa e monitoramento em tempo real para escalar seu
-                            faturamento
-                            de forma lucrativa.</p>
-                    </div>
-                </div>
-            </div>
+        </div>
         </section>
 
-        <!-- Stack & Form Section -->
-        <section id="contato" class="section-gobee bg-gray-50">
+        <!-- Parceiros de Tecnologia -->
+        <section id="parceiros" class="section-gobee bg-white border-t border-gray-50">
             <div class="container-gobee">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-                    <div class="space-y-12">
-                        <div>
-                            <h2 class="text-[31.5px] font-bold text-gobee-dark leading-tight">Sua dúvida não está aqui?
-                                Fale
-                                conosco.</h2>
-                            <p class="text-gray-600 mt-6 text-[17.5px]">Entre em contato e descubra como a GoBee pode
-                                transformar seu e-commerce.</p>
-                        </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div>
                         <div
-                            class="grid grid-cols-3 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                            <span class="font-bold text-xl flex items-center">Vtex</span>
-                            <span class="font-bold text-xl flex items-center">Shopify</span>
-                            <span class="font-bold text-xl flex items-center">Nuvemshop</span>
-                            <span class="font-bold text-xl flex items-center">Meta Ads</span>
-                            <span class="font-bold text-xl flex items-center">RD Station</span>
-                            <span class="font-bold text-xl flex items-center">Tiny ERP</span>
+                            class="inline-flex items-center space-x-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-blocks text-gobee-rose">
+                                <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+                                <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+                                <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+                                <path d="M10 21h8a2 2 0 0 0 2-2V11"></path>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-600">Parceiros de Tecnologia</span>
+                        </div>
+                        <h2 class="text-[31.5px] font-bold text-gobee-dark leading-tight mb-6">Nossa Stack Tecnológica
+                        </h2>
+                        <p class="text-gray-600 text-[17.5px] leading-relaxed mb-10">Trabalhamos com as melhores
+                            ferramentas do mercado para garantir estabilidade e escala para o seu e-commerce.</p>
+                        <div
+                            class="grid grid-cols-3 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 items-center justify-items-center">
+                            <img src="assets/images/partners/nuvemshop.png" alt="Nuvemshop" class="h-8 object-contain">
+                            <img src="assets/images/partners/shopify.png" alt="Shopify" class="h-8 object-contain">
+                            <img src="assets/images/partners/google-ads.png" alt="Google Ads"
+                                class="h-8 object-contain">
+                            <img src="assets/images/partners/rd-station.png" alt="RD Station"
+                                class="h-8 object-contain">
+                            <img src="assets/images/partners/tiny.png" alt="Tiny" class="h-8 object-contain">
+                            <img src="assets/images/partners/bling.png" alt="Bling" class="h-8 object-contain">
                         </div>
                     </div>
-                    <!-- Form Mockup -->
-                    <div class="bg-white p-10 rounded-[10.5px] shadow-xl border border-gray-100">
-                        <form class="space-y-6">
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label class="text-sm font-bold text-gray-700">Seu Nome</label>
-                                    <input type="text" placeholder="Nome completo"
-                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
+                    <!-- Right Column: Foco em ROI + Testimonial -->
+                    <div class="space-y-10">
+                        <!-- Foco em ROI -->
+                        <div>
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="text-gobee-rose">
+                                        <path d="M3 3v18h18" />
+                                        <path d="m19 9-5 5-4-4-3 3" />
+                                    </svg>
                                 </div>
-                                <div class="space-y-2">
-                                    <label class="text-sm font-bold text-gray-700">WhatsApp</label>
-                                    <input type="text" placeholder="(DD) 99999-9999"
-                                        class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Foco em ROI</h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        Não entregamos apenas "código". Entregamos estratégia. Nossas implementações de
+                                        CRM e automação visam aumentar o LTV e reduzir a dependência de anúncios caros.
+                                    </p>
                                 </div>
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-gray-700">E-mail Corporativo</label>
-                                <input type="email" placeholder="seu@email.com"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all">
+                        </div>
+
+                        <!-- Testimonial Card -->
+                        <div class="bg-white p-8 rounded-r-xl border-l-4 border-gobee-rose shadow-lg relative">
+                            <p class="text-lg font-medium text-gray-800 italic mb-6 leading-relaxed">
+                                "A GoBee não só migrou minha loja com segurança, mas implementou o CRM que hoje
+                                representa 20% do meu faturamento recorrente. Eles entendem de negócio."
+                            </p>
+                            <div class="font-bold text-gray-900">
+                                — CEO de e-Commerce de Cosméticos (Case 2024)
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-gray-700">Qual o seu maior desafio hoje?</label>
-                                <textarea placeholder="Conte-nos brevemente..." rows="4"
-                                    class="w-full bg-gray-50 border border-gray-100 rounded-xl px-5 py-4 focus:ring-2 focus:ring-gobee-rose outline-none transition-all"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-gobee bg-gray-50">
+            <div class="container-gobee">
+                <div class="bg-gray-50 mb-12"> <!-- Header removed from center -->
+                    <div class="flex flex-col items-center text-center">
+                        <h2 class="text-[31.5px] font-bold text-gobee-dark mb-2">Perguntas Frequentes</h2>
+                        <p class="text-gray-600">Entenda como trabalhamos sua evolução.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left Column: Accordion -->
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                            <button
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>O que significa ser um 'Growth Partner' e não apenas uma agência?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-up text-gobee-rose">
+                                    <!-- Active styling example -->
+                                    <path d="m18 15-6-6-6 6"></path>
+                                </svg>
+                            </button>
+                            <div class="px-8 py-5 text-gray-600 text-sm border-t border-gray-100 bg-gray-50/50">
+                                Diferente de agências tradicionais que focam em entregáveis (posts, layouts ou cliques),
+                                nós focamos no resultado financeiro (Lucro Líquido e ROAS). Atuamos como sócios de
+                                crescimento, integrando Tecnologia, Tráfego e Retenção para fazer sua operação escalar
+                                de forma saudável.
                             </div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                            <button
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Para qual estágio de negócio a GoBee é indicada?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                            <button
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Como funciona a implementação da Metodologia GoBee?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                            <button
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Vocês atendem B2B (Atacado) ou apenas Varejo (B2C)?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Form -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sua dúvida não está aqui?</h3>
+                        <p class="text-sm text-gray-500 mb-6">Envie sua pergunta e um consultor responderá em breve.</p>
+
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Nome</label>
+                                    <input type="text" placeholder="Ex: Ana"
+                                        class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Sobrenome</label>
+                                    <input type="text" placeholder="Silva"
+                                        class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Seu E-mail</label>
+                                <input type="email" placeholder="ana@loja.com"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Seu WhatsApp</label>
+                                <input type="text" placeholder="(11) 99999-9999"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Sua Pergunta</label>
+                                <textarea rows="3" placeholder="Ex: Como funciona o processo de contrato?"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border"></textarea>
+                            </div>
+
                             <button type="submit"
-                                class="w-full py-5 bg-gobee-rose text-white rounded-[10.5px] font-bold text-lg hover:bg-gobee-rose-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">Enviar
-                                Solicitação →</button>
+                                class="w-full bg-gray-900 text-white rounded-lg py-3 font-bold text-sm hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                                Enviar Dúvida
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-send">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <!-- Footer -->
-    <footer class="py-16 bg-white border-t border-gray-100">
+    <footer class="py-16 bg-[#111] border-t-4 border-gobee-rose text-white">
         <div class="container-gobee">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Brand -->
                 <div class="space-y-6">
-                    <img src="https://img.gobee.com.br/wp-content/uploads/2026/01/gobee-logo.png" alt="GoBee"
-                        class="h-10">
-                    <p class="text-gray-500 max-w-sm">Transformamos Lojas Virtuais em Ecossistemas de Vendas de Alta
-                        Performance através de Ciência de Dados e Mentalidade de Growth.</p>
+                    <img src="assets/images/gobee-logo.png" alt="GoBee" class="h-10 brightness-0 invert">
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Transformamos lojas virtuais em ecossistemas de vendas de alta performance. Infraestrutura,
+                        Tráfego e Retenção.
+                    </p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-gobee-dark">Soluções</h4>
-                        <ul class="space-y-2 text-sm text-gray-500">
-                            <li><a href="#" class="hover:text-gobee-rose">Performance</a></li>
-                            <li><a href="#" class="hover:text-gobee-rose">Full Commerce</a></li>
-                            <li><a href="#" class="hover:text-gobee-rose">Design CRO</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-gobee-dark">Empresa</h4>
-                        <ul class="space-y-2 text-sm text-gray-500">
-                            <li><a href="#" class="hover:text-gobee-rose">Sobre Nós</a></li>
-                            <li><a href="#" class="hover:text-gobee-rose">Metodologia</a></li>
-                            <li><a href="#" class="hover:text-gobee-rose">Blog</a></li>
-                        </ul>
-                    </div>
+
+                <!-- Soluções -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">SOLUÇÕES</h4>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Setup & Migração</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Tráfego Pago (Ads)</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">CRM & Retenção</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Design & CRO</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Consultoria Estratégica</a></li>
+                    </ul>
+                </div>
+
+                <!-- Nichos -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">NICHOS</h4>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Moda & Acessórios</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Saúde & Beleza</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Pet Shop</a></li>
+                        <li><a href="#" class="hover:text-gobee-rose transition-colors">Casa & Decoração</a></li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">VAMOS CRESCER?</h4>
+                    <p class="text-gray-400 text-xs">Pare de deixar dinheiro na mesa. Solicite um diagnóstico.</p>
+                    <button onclick="openDiagnosticModal()"
+                        class="w-full bg-gobee-rose text-white font-bold py-3 rounded-lg hover:bg-gobee-rose-dark transition-all flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-message-circle">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                        </svg>
+                        Falar com Especialista
+                    </button>
+                    <a href="mailto:contato@gobee.com.br"
+                        class="flex items-center gap-2 text-gray-400 hover:text-white text-xs transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-mail">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        contato@gobee.com.br
+                    </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="w-full border-t border-gray-800 mt-16">
             <div
-                class="mt-16 pt-8 border-t border-gray-50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-400">
-                <span>&copy; 2026 GoBee Performance. Todos os direitos reservados.</span>
-                <div class="space-x-4">
-                    <a href="#" class="hover:text-gobee-rose">Privacidade</a>
-                    <a href="#" class="hover:text-gobee-rose">Termos</a>
+                class="container-gobee h-[60px] flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-500">
+                <span>&copy; 2026 GoBee Commerce. Todos os direitos reservados.</span>
+                <div class="flex items-center gap-6">
+                    <a href="https://www.instagram.com/gobee.com.br/" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/gobeemarketing" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-linkedin">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/gobeemarketing" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- Diagnostic Modal -->
+    <div id="diagnostic-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop">
+        </div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <!-- Modal Panel -->
+                <div class="relative transform overflow-hidden rounded-[20px] bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    id="modal-panel">
+
+                    <!-- Header -->
+                    <div
+                        class="bg-gray-50 px-4 py-3 sm:px-6 border-b border-gray-100 flex justify-between items-center">
+                        <div>
+                            <p class="text-[11px] font-bold text-gobee-rose tracking-wider uppercase">Diagnóstico GoBee
+                            </p>
+                            <h3 class="text-base font-bold text-gray-900" id="modal-step-title">Passo 1 de 4</h3>
+                        </div>
+                        <button type="button" onclick="closeDiagnosticModal()"
+                            class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Fechar</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Steps Container -->
+                    <div class="px-4 py-5 sm:p-6">
+
+                        <!-- Step 1: Personal Info -->
+                        <div id="step-1" class="step-content">
+                            <h4 class="text-xl font-bold text-gray-900 mb-1">Vamos começar!</h4>
+                            <p class="text-sm text-gray-500 mb-6">Precisamos saber quem é você para personalizar o
+                                plano.</p>
+
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="nome"
+                                        class="block text-xs font-semibold text-gray-700 mb-1">Nome</label>
+                                    <input type="text" id="nome"
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                        placeholder="Ex: João">
+                                </div>
+                                <div>
+                                    <label for="sobrenome"
+                                        class="block text-xs font-semibold text-gray-700 mb-1">Sobrenome</label>
+                                    <input type="text" id="sobrenome"
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                        placeholder="Silva">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="block text-xs font-semibold text-gray-700 mb-1">E-mail
+                                    Corporativo</label>
+                                <input type="email" id="email"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="joao@suaempresa.com.br">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="whatsapp" class="block text-xs font-semibold text-gray-700 mb-1">Telefone /
+                                    WhatsApp</label>
+                                <input type="tel" id="whatsapp"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Segment -->
+                        <div id="step-2" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual seu segmento?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('segmento', 'Moda & Acessórios')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Moda
+                                        & Acessórios</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Saúde & Beleza')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Saúde
+                                        & Beleza</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Pet Shop')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Pet
+                                        Shop</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Casa & Decoração')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Casa
+                                        & Decoração</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Outros')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Outros</span>
+                                </button>
+                            </div>
+                            <!-- Outros Input -->
+                            <div id="segmento-outros-container" class="mt-3 hidden transition-all">
+                                <label for="segmento-outros" class="block text-xs font-semibold text-gray-700 mb-1">Qual
+                                    outro segmento?</label>
+                                <input type="text" id="segmento-outros"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="Digite seu segmento...">
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Current Moment (Revenue) -->
+                        <div id="step-3" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual o momento atual da loja?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('faturamento', '0-10k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-white group-hover:text-gobee-rose transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m12 14 4-4" />
+                                                <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Estou
+                                            começando (R$ 0 - R$ 10k/mês)</span>
+                                    </div>
+                                </button>
+                                <button type="button" onclick="selectOption('faturamento', '10k-100k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-white group-hover:text-gobee-rose transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 3v18h18" />
+                                                <path d="M18 17V9" />
+                                                <path d="M13 17V5" />
+                                                <path d="M8 17v-3" />
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Em
+                                            crescimento (R$ 10k - R$ 100k/mês)</span>
+                                    </div>
+                                </button>
+                                <button type="button" onclick="selectOption('faturamento', '+100k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 group-hover:bg-white group-hover:text-gobee-rose transition-colors">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                                <path
+                                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                            </svg>
+                                        </div>
+                                        <span
+                                            class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Escalando
+                                            (+ R$ 100k/mês)</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Challenge -->
+                        <div id="step-4" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual seu maior desafio hoje?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('desafio', 'Setup/Migração')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Preciso
+                                            migrar de plataforma (Setup)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Meu site atual trava ou é limitado.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Tecnico/Integração')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Problemas
+                                            Técnicos/Integração</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Estoque não bate, ERP desconectado.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Tráfego (Ads)')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Trazer
+                                            tráfego qualificado (Ads)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Preciso vender mais para novos clientes.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Retenção (CRM)')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Reter
+                                            clientes (LTV/CRM)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Tenho tráfego mas o cliente não volta.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Outros')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Outros</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Tenho um desafio específico não listado.</p>
+                                </button>
+                            </div>
+                            <!-- Outros Input -->
+                            <div id="desafio-outros-container" class="mt-3 hidden transition-all">
+                                <label for="desafio-outros" class="block text-xs font-semibold text-gray-700 mb-1">Qual
+                                    outro desafio?</label>
+                                <input type="text" id="desafio-outros"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="Descreva seu desafio...">
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Result -->
+                        <div id="step-result" class="step-content hidden text-center pt-2">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Diagnóstico Concluído!</h4>
+                            <p class="text-gray-500 text-sm mb-6">Com base nas suas respostas, a solução ideal é:</p>
+
+                            <div class="bg-rose-50 border border-gobee-rose rounded-xl p-6 mb-6">
+                                <div id="result-icon" class="mb-3 flex justify-center text-gobee-rose/40">
+                                    <!-- Icon injected via JS -->
+                                </div>
+                                <h3 id="result-title" class="text-lg font-bold text-gray-900 mb-2">Titulo do Resultado
+                                </h3>
+                                <p id="result-description" class="text-sm text-gray-600 leading-relaxed">Descrição do
+                                    resultado.</p>
+                            </div>
+
+                            <button id="btn-whatsapp" onclick="openWhatsApp()"
+                                class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3.5 px-6 rounded-[10.5px] transition-all flex items-center justify-center gap-2 mb-4 shadow-lg hover:-translate-y-0.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                                    <path
+                                        d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+                                </svg>
+                                Falar com especialista
+                            </button>
+
+                            <button onclick="closeAndReset()"
+                                class="w-full py-3 bg-gray-100 text-gray-700 font-bold rounded-[10.5px] hover:bg-gray-200 transition-all text-sm">
+                                Finalizar
+                            </button>
+                            <p class="text-[10px] text-gray-400 mt-4">Você será redirecionado para o WhatsApp do nosso
+                                especialista.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Footer Actions (Steps 1-4) -->
+                    <div id="modal-footer"
+                        class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-gray-100">
+                        <button type="button" id="btn-next" onclick="nextStep()"
+                            class="w-full inline-flex justify-center rounded-[10.5px] border border-transparent bg-gray-600 px-4 py-2 text-base font-bold text-white shadow-sm hover:bg-gray-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                            Próximo
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                        <button type="button" id="btn-back" onclick="prevStep()"
+                            class="mt-3 w-full inline-flex justify-center rounded-[10.5px] border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-all hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .step-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        const state = {
+            step: 1,
+            data: {
+                nome: '',
+                sobrenome: '',
+                email: '',
+                whatsapp: '',
+                segmento: '',
+                faturamento: '',
+                desafio: '',
+                segmentoOutros: '',
+                desafioOutros: ''
+            }
+        };
+
+        const modal = document.getElementById('diagnostic-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+        const panel = document.getElementById('modal-panel');
+        const stepTitle = document.getElementById('modal-step-title');
+        const btnNext = document.getElementById('btn-next');
+        const btnBack = document.getElementById('btn-back');
+        const modalFooter = document.getElementById('modal-footer');
+
+        function openDiagnosticModal() {
+            modal.classList.remove('hidden');
+            // Trigger animation
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+                panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+            }, 10);
+            updateUI();
+        }
+
+        function closeDiagnosticModal() {
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
+            panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function nextStep() {
+            if (!validateStep()) return;
+
+            if (state.step < 5) {
+                state.step++;
+                updateUI();
+            }
+        }
+
+        function prevStep() {
+            if (state.step > 1) {
+                state.step--;
+                updateUI();
+            }
+        }
+
+        function resetForm() {
+            state.step = 1;
+            state.data = {
+                nome: '',
+                sobrenome: '',
+                email: '',
+                whatsapp: '',
+                segmento: '',
+                faturamento: '',
+                desafio: '',
+                segmentoOutros: '',
+                desafioOutros: ''
+            };
+            // Clear input fields
+            document.getElementById('nome').value = '';
+            document.getElementById('sobrenome').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('whatsapp').value = '';
+            if (document.getElementById('segmento-outros')) document.getElementById('segmento-outros').value = '';
+            if (document.getElementById('desafio-outros')) document.getElementById('desafio-outros').value = '';
+
+            // Remove check icons from all option cards
+            document.querySelectorAll('.option-card .check-icon').forEach(icon => icon.remove());
+            document.querySelectorAll('.option-card').forEach(btn => {
+                btn.classList.remove('border-gobee-rose', 'bg-rose-50', 'ring-1', 'ring-gobee-rose');
+            });
+
+            updateUI();
+        }
+
+        function closeAndReset() {
+            closeDiagnosticModal();
+            resetForm();
+        }
+
+        function selectOption(key, value) {
+            state.data[key] = value;
+            // Update UI selection
+            const currentStepEl = document.getElementById(`step-${state.step}`);
+            const buttons = currentStepEl.querySelectorAll('.option-card');
+
+            buttons.forEach(btn => {
+                // Remove existing check icon from all buttons in the current step
+                const existingCheckIcon = btn.querySelector('.check-icon');
+                if (existingCheckIcon) {
+                    existingCheckIcon.remove();
+                }
+
+                btn.classList.remove('border-gobee-rose', 'bg-rose-50', 'ring-1', 'ring-gobee-rose');
+
+                if (btn.getAttribute('onclick').includes(`'${value}'`)) {
+                    btn.classList.add('border-gobee-rose', 'bg-rose-50', 'ring-1', 'ring-gobee-rose');
+                    // Add check icon to the selected button
+                    const iconHtml = `<svg class="check-icon w-5 h-5 text-gobee-rose ml-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>`;
+
+                    // For step 2 (Segment):
+                    if (state.step === 2) {
+                        btn.insertAdjacentHTML('beforeend', iconHtml);
+                    }
+                    // For step 3 & 4 (Complex cards):
+                    if (state.step === 3 || state.step === 4) {
+                        const flexDiv = btn.querySelector('.flex.justify-between') || btn.querySelector('.flex.items-center.gap-3');
+                        if (flexDiv) {
+                            flexDiv.insertAdjacentHTML('beforeend', iconHtml);
+                        }
+                    }
+                }
+            });
+
+            // Handle 'Outros' input visibility
+            if (key === 'segmento') {
+                const outrosContainer = document.getElementById('segmento-outros-container');
+                if (value === 'Outros') {
+                    outrosContainer.classList.remove('hidden');
+                    setTimeout(() => document.getElementById('segmento-outros').focus(), 100);
+                } else {
+                    outrosContainer.classList.add('hidden');
+                    state.data.segmentoOutros = '';
+                    if (document.getElementById('segmento-outros')) document.getElementById('segmento-outros').value = '';
+                }
+            }
+            if (key === 'desafio') {
+                const outrosContainer = document.getElementById('desafio-outros-container');
+                if (value === 'Outros') {
+                    outrosContainer.classList.remove('hidden');
+                    setTimeout(() => document.getElementById('desafio-outros').focus(), 100);
+                } else {
+                    outrosContainer.classList.add('hidden');
+                    state.data.desafioOutros = '';
+                    if (document.getElementById('desafio-outros')) document.getElementById('desafio-outros').value = '';
+                }
+            }
+
+            validateStep();
+        }
+
+        function validateStep() {
+            let isValid = false;
+
+            if (state.step === 1) {
+                const nome = document.getElementById('nome').value;
+                const sobrenome = document.getElementById('sobrenome').value;
+                const email = document.getElementById('email').value;
+                const whatsapp = document.getElementById('whatsapp').value;
+
+                if (nome && sobrenome && email && whatsapp && whatsapp.length >= 14) { // Basic phone validation
+                    state.data.nome = nome;
+                    state.data.sobrenome = sobrenome;
+                    state.data.email = email;
+                    state.data.whatsapp = whatsapp;
+                    isValid = true;
+                }
+            } else if (state.step === 2) {
+                if (state.data.segmento) {
+                    if (state.data.segmento === 'Outros') {
+                        const outrosVal = document.getElementById('segmento-outros').value;
+                        if (outrosVal.trim().length > 0) {
+                            state.data.segmentoOutros = outrosVal;
+                            isValid = true;
+                        }
+                    } else {
+                        isValid = true;
+                    }
+                }
+            } else if (state.step === 3) {
+                if (state.data.faturamento) isValid = true;
+            } else if (state.step === 4) {
+                if (state.data.desafio) {
+                    if (state.data.desafio === 'Outros') {
+                        const outrosVal = document.getElementById('desafio-outros').value;
+                        if (outrosVal.trim().length > 0) {
+                            state.data.desafioOutros = outrosVal;
+                            isValid = true;
+                        }
+                    } else {
+                        isValid = true;
+                    }
+                }
+            }
+
+            // Update Next Button State
+            if (isValid) {
+                btnNext.removeAttribute('disabled');
+                btnNext.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                btnNext.classList.add('bg-gobee-dark', 'hover:bg-gray-800');
+                if (state.step === 4) btnNext.innerHTML = 'Ver meu diagnóstico <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>';
+                else btnNext.innerHTML = 'Próximo <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>';
+            } else {
+                btnNext.setAttribute('disabled', 'true');
+                btnNext.classList.add('bg-gray-400', 'cursor-not-allowed');
+                btnNext.classList.remove('bg-gobee-dark', 'hover:bg-gray-800');
+            }
+
+            return isValid;
+        }
+
+        // Add event listeners to inputs for live validation
+        ['nome', 'sobrenome', 'email', 'whatsapp', 'segmento-outros', 'desafio-outros'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', validateStep);
+        });
+
+        // Phone Mask
+        document.getElementById('whatsapp').addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+            validateStep(); // Re-validate on input
+        });
+
+        function updateUI() {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+
+            // Show current step
+            if (state.step <= 4) {
+                document.getElementById(`step-${state.step}`).classList.remove('hidden');
+                stepTitle.innerText = `Passo ${state.step} de 4`;
+                modalFooter.classList.remove('hidden');
+
+                // Reset Footer Buttons Visibility for Steps 1-4
+                btnNext.classList.remove('hidden');
+                if (state.step > 1) {
+                    btnBack.classList.remove('hidden');
+                } else {
+                    btnBack.classList.add('hidden');
+                }
+
+                // Restore validation state
+                validateStep();
+                // Restore selection UI
+                if (state.step > 1) {
+                    const key = state.step === 2 ? 'segmento' : (state.step === 3 ? 'faturamento' : 'desafio');
+                    if (state.data[key]) selectOption(key, state.data[key]);
+                }
+
+            } else if (state.step === 5) {
+                // Result Step
+                updateResultContent();
+                document.getElementById('step-result').classList.remove('hidden');
+                stepTitle.innerText = 'Seu Resultado';
+
+                modalFooter.classList.remove('hidden');
+                btnNext.classList.add('hidden'); // Hide Next button in result
+                btnBack.classList.remove('hidden'); // Show Back button
+            }
+        }
+
+        function updateResultContent() {
+            // Calculate Logic
+            let resultType = 'Especialista'; // Default
+            const rev = state.data.faturamento;
+            const chal = state.data.desafio;
+
+            if (rev === '+100k') {
+                resultType = 'Growth';
+            } else if (rev === '10k-100k' && (chal === 'Tráfego (Ads)' || chal === 'Retenção (CRM)')) {
+                resultType = 'Growth';
+            } else {
+                resultType = 'Especialista';
+            }
+
+            // Update Content
+            const titleEl = document.getElementById('result-title');
+            const descEl = document.getElementById('result-description');
+            const iconEl = document.getElementById('result-icon');
+
+            if (resultType === 'Growth') {
+                titleEl.textContent = 'Aceleração Mensal (Growth Partner)';
+                descEl.textContent = 'Você já tem produto validado e precisa de escala. Nosso foco será reduzir seu CAC e aumentar o LTV através de Mídia Paga e CRM.';
+                iconEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gobee-rose"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>`;
+            } else {
+                titleEl.textContent = 'Projeto Pontual (Especialista)';
+                descEl.textContent = 'O momento pede organização da casa. Vamos resolver seus gargalos técnicos e de migração para preparar sua loja para o crescimento.';
+                iconEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gobee-rose"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.1a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>`;
+            }
+        }
+
+        function openWhatsApp() {
+            // Calculate Logic (Internal) for message
+            let resultType = 'Especialista';
+            const rev = state.data.faturamento;
+            const chal = state.data.desafio;
+            if (rev === '+100k') {
+                resultType = 'Growth';
+            } else if (rev === '10k-100k' && (chal === 'Tráfego (Ads)' || chal === 'Retenção (CRM)')) {
+                resultType = 'Growth';
+            }
+
+            const resultTitle = resultType === 'Growth' ? 'Aceleração Mensal (Growth Partner)' : 'Projeto Pontual (Especialista)';
+
+            // Prepare Data for WhatsApp
+            const segmentoFinal = state.data.segmento === 'Outros' ? `Outros: ${state.data.segmentoOutros}` : state.data.segmento;
+            const desafioFinal = state.data.desafio === 'Outros' ? `Outros: ${state.data.desafioOutros}` : state.data.desafio;
+
+            // WhatsApp Message
+            const msg = `Olá! Acabei de fazer o diagnóstico no site.\n\n*Meus Dados:*\nNome: ${state.data.nome} ${state.data.sobrenome}\nEmail: ${state.data.email}\nSegmento: ${segmentoFinal}\n\n*Meu Momento:*\nFaturamento: ${state.data.faturamento}\nDesafio Principal: ${desafioFinal}\n\n*Resultado Sugerido:* ${resultTitle}`;
+
+            const link = `https://wa.me/554830360686?text=${encodeURIComponent(msg)}`;
+
+            // Open WhatsApp
+            window.open(link, '_blank');
+        }
+
+    </script>
 </body>
 
 </html>
