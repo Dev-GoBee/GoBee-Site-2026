@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBee Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="assets/css/admin.css" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        gobee: {
+                            rose: '#FF0055',
+                            'rose-dark': '#CC0044',
+                            dark: '#0A0A0A',
+                            gray: '#F3F4F6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#F8F9FA] text-gray-900 h-screen flex flex-col overflow-hidden">
+
+    <!-- Header / Topbar -->
+    <header
+        class="h-16 bg-[#0A0A0A] border-b border-white/10 flex items-center justify-between px-6 lg:px-8 text-white shrink-0 z-50">
+        <div class="flex items-center gap-8">
+            <!-- Brand -->
+            <div class="flex items-center gap-2">
+                <img src="../assets/images/gobee-logo.png" alt="GoBee" class="h-6 brightness-0 invert">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center gap-1" id="top-nav">
+                <a href="#" onclick="renderView('leads')" id="nav-leads"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                    Leads & CRM
+                </a>
+                <a href="#" onclick="renderView('inquiries')" id="nav-inquiries"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                    Dúvidas
+                </a>
+                <a href="#" onclick="renderView('integrations')" id="nav-integrations"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                    Integrações
+                </a>
+                <a href="#" onclick="renderView('settings')" id="nav-settings"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                    Configurações
+                </a>
+                <a href="#" onclick="renderView('team')" id="nav-team"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-colors">
+                    Equipe
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <button class="text-gray-400 hover:text-white relative">
+                <i data-lucide="home" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-3 pl-6 border-l border-white/10">
+                <div
+                    class="w-8 h-8 rounded-full bg-gobee-rose flex items-center justify-center text-xs font-bold ring-2 ring-[#0A0A0A]">
+                    <img src="https://ui-avatars.com/api/?name=Giulian+Pizzio&background=random" alt="GP"
+                        class="rounded-full">
+                </div>
+                <div class="hidden lg:block text-sm">
+                    <p class="font-bold text-white leading-none" id="current-user-name">Giulian Pizzio</p>
+                </div>
+                <button class="text-gray-400 hover:text-white ml-2">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-6 lg:p-10 relative" id="main-view">
+        <!-- Dynamic Content will be injected here -->
+        <div class="flex items-center justify-center h-full text-gray-400">
+            <div class="text-center">
+                <div class="animate-spin mb-4 text-gobee-rose">
+                    <i data-lucide="loader-2" class="w-8 h-8 mx-auto"></i>
+                </div>
+                <p>Carregando...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/leads.js"></script>
+    <script src="assets/js/inquiries.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/team.js"></script>
+    <script src="assets/js/integrations.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

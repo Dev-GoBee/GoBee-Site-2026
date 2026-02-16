@@ -1,0 +1,23 @@
+/* Admin Specific Styles */
+/* Scrollbar styling for kanban/tables */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+}
+
+.kanban-col {
+    min-width: 320px;
+}

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde & Beleza | GoBee - A Beleza da Venda Recorrente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gobee-dark': '#0F172A',
+                        'gobee-rose': '#ee1d54',
+                        'gobee-rose-dark': '#d11a4a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    spacing: {
+                        '7': '28px',
+                        '17.5': '70px',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer base {
+            html { scroll-behavior: smooth; }
+        }
+        @layer components {
+            .btn-primary {
+                @apply bg-gobee-rose text-white px-8 py-4 rounded-[10.5px] font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-gobee-rose-dark flex items-center justify-center;
+            }
+            .btn-outline {
+                @apply bg-white text-gobee-dark border border-gray-300 px-8 py-4 rounded-[10.5px] font-semibold transition-all hover:bg-gray-50 flex items-center justify-center;
+            }
+            .container-gobee {
+                @apply max-w-[1320px] mx-auto px-7;
+            }
+            .section-gobee {
+                @apply py-[70px];
+            }
+            .py-16 {
+                padding-bottom: 0rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 overflow-x-hidden antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="container-gobee">
+            <div class="flex justify-between items-center">
+                <a href="home.html" class="flex items-center cursor-pointer">
+                    <img id="logo" src="assets/images/gobee-logo.png" alt="GoBee"
+                        class="w-auto transition-all duration-300 h-10">
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="home.html#servicos"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Soluções</a>
+                    <a href="home.html#nichos"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Segmentos</a>
+                    <a href="home.html#metodologia"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Metodologia</a>
+                    <a href="home.html#faq"
+                        class="text-sm font-medium text-gray-700 hover:text-gobee-rose transition-colors">Dúvidas</a>
+                </nav>
+                <div class="hidden md:block">
+                    <button
+                        class="px-6 py-2.5 rounded-[10.5px] font-bold text-sm bg-gobee-dark text-white hover:bg-gray-800 transition-all hover:-translate-y-0.5 shadow-md"
+                        onclick="openDiagnosticModal()">Falar com Especialista</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Dynamic header on scroll
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            const logo = document.getElementById('logo');
+
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-gray-100');
+                header.classList.remove('py-4');
+                header.classList.add('py-3');
+                logo.classList.remove('h-10');
+                logo.classList.add('h-8');
+            } else {
+                header.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'border-b', 'border-gray-100');
+                header.classList.remove('py-3');
+                header.classList.add('py-4');
+                logo.classList.remove('h-8');
+                logo.classList.add('h-10');
+            }
+        });
+    </script>
+
+    <main class="pt-0">
+        <!-- Hero Section -->
+        <section class="relative h-[670px] max-h-[670px] flex items-center overflow-hidden bg-white">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="/Users/giulian.pizzio/.gemini/antigravity/brain/32a6191a-ab79-4549-9a86-ec8937795cef/media__1771010838166.png"
+                    alt="Saúde & Beleza Hero" class="w-full h-full object-cover">
+                <!-- Strategic overlay for readability -->
+                <div class="absolute inset-0 bg-white/10"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-white/90 via-white/40 to-transparent"></div>
+            </div>
+
+            <div class="container-gobee w-full relative z-10 py-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="max-w-xl text-left">
+                        <!-- Badge -->
+                        <div
+                            class="inline-flex items-center space-x-2 bg-white/40 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-6 shadow-sm">
+                            <span class="flex h-2 w-2 rounded-full bg-gobee-rose animate-pulse"></span>
+                            <span class="text-[12px] font-bold text-gobee-dark tracking-wider">Nicho com maior
+                                recorrência</span>
+                        </div>
+
+                        <!-- Headline -->
+                        <h1 class="text-[52px] font-extrabold text-gobee-dark leading-[1.1] mb-6 tracking-tight">
+                            A Beleza da<br>
+                            <span class="text-gobee-rose">Venda Recorrente.</span>
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="text-[18px] text-gray-800 leading-relaxed mb-10 max-w-2xl font-medium">
+                            Cosméticos acabam. Transformamos compradores únicos em assinantes fiéis com foco em LTV e
+                            estratégias automatizadas de reposição.
+                        </p>
+
+                        <!-- CTAs -->
+                        <div class="flex items-center gap-4">
+                            <button onclick="openDiagnosticModal()"
+                                class="px-7 py-3.5 bg-gobee-rose text-white font-bold rounded-xl hover:bg-gobee-rose-dark transition-all shadow-lg hover:-translate-y-1 flex items-center gap-2 text-sm uppercase tracking-wide">
+                                Criar Minha Estratégia
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-arrow-right">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Performance Card (Native UI) -->
+                    <div class="hidden lg:block relative">
+                        <div
+                            class="bg-white/80 backdrop-blur-xl p-8 rounded-[32px] border border-white/40 shadow-2xl relative z-10">
+                            <div class="flex justify-between items-start mb-8">
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">
+                                        Faturamento Recorrente</p>
+                                    <h3 class="text-3xl font-extrabold text-gobee-dark">+142%</h3>
+                                </div>
+                                <div class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-[10px] font-bold">
+                                    ↑ LTV Otimizado
+                                </div>
+                            </div>
+
+                            <!-- Native CSS Chart Reference -->
+                            <div class="h-32 flex items-end gap-2 mb-6">
+                                <div
+                                    class="w-full bg-gray-100 rounded-t-lg h-[30%] transition-all hover:bg-gobee-rose/40">
+                                </div>
+                                <div
+                                    class="w-full bg-gray-100 rounded-t-lg h-[45%] transition-all hover:bg-gobee-rose/40">
+                                </div>
+                                <div
+                                    class="w-full bg-gray-100 rounded-t-lg h-[40%] transition-all hover:bg-gobee-rose/40">
+                                </div>
+                                <div
+                                    class="w-full bg-gray-100 rounded-t-lg h-[65%] transition-all hover:bg-gobee-rose/40">
+                                </div>
+                                <div
+                                    class="w-full bg-gray-100 rounded-t-lg h-[55%] transition-all hover:bg-gobee-rose/40">
+                                </div>
+                                <div
+                                    class="w-full bg-gobee-rose rounded-t-lg h-[85%] shadow-[0_0_20px_rgba(238,29,84,0.3)]">
+                                </div>
+                                <div class="w-full bg-gobee-dark rounded-t-lg h-[100%]"></div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Taxa de Retorno</p>
+                                    <p class="text-lg font-bold text-gobee-dark">68%</p>
+                                </div>
+                                <div class="p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Ticket Médio</p>
+                                    <p class="text-lg font-bold text-gobee-dark">R$ 382</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Challenge Section (Refined Native Layout) -->
+        <section class="section-gobee bg-white overflow-hidden">
+            <div class="container-gobee">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left: Niche-Specific Image with Native Overlays -->
+                    <div class="relative">
+                        <div class="rounded-[40px] overflow-hidden shadow-2xl relative aspect-[4/3]">
+                            <img src="/Users/giulian.pizzio/.gemini/antigravity/brain/32a6191a-ab79-4549-9a86-ec8937795cef/media__1771010850239.png"
+                                alt="Saúde & Beleza Visual" class="w-full h-full object-cover">
+                            <!-- Subtle Gradient for Card Integration -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-gobee-dark/40 via-transparent to-transparent">
+                            </div>
+                        </div>
+
+                        <!-- Floating KPI Card -->
+                        <div
+                            class="absolute -bottom-6 -right-6 lg:-right-10 bg-white p-6 rounded-3xl shadow-2xl border border-gray-100 max-w-[260px] animate-bounce-subtle">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 bg-rose-50 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ee1d54" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg>
+                                </div>
+                                <p class="text-sm font-bold text-gobee-dark">Faturamento por Lead</p>
+                            </div>
+                            <p class="text-[10px] text-gray-400 leading-relaxed">
+                                "R$ 1.200/ano em média por cliente recorrente fidelizado."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="space-y-6">
+                        <p class="text-gobee-rose font-bold text-[10px] uppercase tracking-[0.2em]">O CICLO DE VIDA</p>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gobee-dark leading-tight tracking-tight">
+                            Pare de vender potes.<br>Venda o <span
+                                class="bg-gray-100 px-2 rounded-lg italic">tratamento.</span>
+                        </h2>
+                        <div class="space-y-4 text-gray-600 text-[16px] leading-relaxed max-w-lg font-medium">
+                            <p>
+                                No nicho de saúde e beleza, o lucro real está no ciclo de recompra. O CAC é apenas a
+                                porta de entrada.
+                            </p>
+                            <p>
+                                Nossa tecnologia prevê quando o produto do cliente vai acabar e envia uma oferta
+                                automática, garantindo a fidelização perpétua.
+                            </p>
+                        </div>
+
+                        <!-- Checklist -->
+                        <ul class="space-y-5 pt-4">
+                            <li class="flex items-center gap-4 text-sm font-bold text-gobee-dark group">
+                                <span
+                                    class="flex-shrink-0 w-6 h-6 bg-rose-50 rounded-full flex items-center justify-center group-hover:bg-gobee-rose transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ee1d54" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" class="group-hover:stroke-white">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </span>
+                                Quiz de Personalização (Recomendação Inteligente)
+                            </li>
+                            <li class="flex items-center gap-4 text-sm font-bold text-gobee-dark group">
+                                <span
+                                    class="flex-shrink-0 w-6 h-6 bg-rose-50 rounded-full flex items-center justify-center group-hover:bg-gobee-rose transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ee1d54" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" class="group-hover:stroke-white">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </span>
+                                Landing Pages Ultra-Segmentadas por Produto
+                            </li>
+                            <li class="flex items-center gap-4 text-sm font-bold text-gobee-dark group">
+                                <span
+                                    class="flex-shrink-0 w-6 h-6 bg-rose-50 rounded-full flex items-center justify-center group-hover:bg-gobee-rose transition-all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ee1d54" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" class="group-hover:stroke-white">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </span>
+                                Recuperação de Carrinho via WhatsApp Automatizado
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Process Steps -->
+        <section class="section-gobee bg-[#020617] text-white">
+            <div class="container-gobee">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold mb-4">Estratégia de Recorrência Estética</h2>
+                    <p class="text-gray-400">Como transformamos sua loja em uma fonte previsível de faturamento.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div
+                        class="relative p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-gobee-rose/50 transition-all group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 rounded-xl flex items-center justify-center mb-6 border border-gobee-rose/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#ee1d54" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="8.5" cy="7" r="4" />
+                                <polyline points="17 11 19 13 23 9" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Clubes de Assinatura</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Implementamos tecnologia para permitir compras
+                            programadas. "Receba seu kit skincare todo mês com 10% OFF". Receita previsível para o seu
+                            caixa.</p>
+                    </div>
+                    <div
+                        class="relative p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-gobee-rose/50 transition-all group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 rounded-xl flex items-center justify-center mb-6 border border-gobee-rose/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#ee1d54" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Automação de Reposição</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Calculamos o tempo médio de uso do produto (ex:
+                            45 dias para um Whey Protein) e enviamos um e-mail/WhatsApp automático lembrando de repor
+                            antes que acabe.</p>
+                    </div>
+                    <div
+                        class="relative p-8 bg-white/5 rounded-3xl border border-white/10 hover:border-gobee-rose/50 transition-all group">
+                        <div
+                            class="w-12 h-12 bg-gobee-rose/10 rounded-xl flex items-center justify-center mb-6 border border-gobee-rose/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#ee1d54" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="8" height="8" x="3" y="3" rx="1" />
+                                <rect width="8" height="8" x="13" y="3" rx="1" />
+                                <rect width="8" height="8" x="3" y="13" rx="1" />
+                                <rect width="8" height="8" x="13" y="13" rx="1" />
+                            </svg>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">Kits & Bundles</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed">Estratégia de CRO para aumentar o Ticket Médio.
+                            Criamos ofertas de "Compre a Rotina Completa" em vez de vender apenas um item isolado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section-gobee bg-white overflow-hidden">
+            <div class="container-gobee">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                    <div>
+                        <h2 class="text-3xl font-extrabold text-gobee-dark mb-4">Quem já escala com a GoBee</h2>
+                        <p class="text-gray-500">Resultados reais de lojistas do segmento de saúde e beleza.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 flex flex-col h-full">
+                        <div class="flex text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 italic mb-8 flex-grow">"Transformaram minha loja de cosméticos. Antes eu
+                            vendia um batom e rezava pro cliente voltar. Hoje tenho um sistema que busca ele
+                            automaticamente."</p>
+                        <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                            <img src="/Users/giulian.pizzio/.gemini/antigravity/brain/32a6191a-ab79-4549-9a86-ec8937795cef/avatar_woman_1_1771010907057.png"
+                                class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Cláudia R.</h5>
+                                <p class="text-xs text-gray-500">Fundadora, Glow Beauty</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 flex flex-col h-full">
+                        <div class="flex text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 italic mb-8 flex-grow">"A estratégia de kits aumentou meu ticket médio
+                            em 40%. A equipe da GoBee entende muito de margem de lucro."</p>
+                        <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                            <img src="/Users/giulian.pizzio/.gemini/antigravity/brain/32a6191a-ab79-4549-9a86-ec8937795cef/avatar_woman_2_1771010921892.png"
+                                class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Roberto A.</h5>
+                                <p class="text-xs text-gray-500">Diretor, Farmácia Natural</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100 flex flex-col h-full">
+                        <div class="flex text-gobee-rose mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+                            </svg>
+                        </div>
+                        <p class="text-gray-600 italic mb-8 flex-grow">"Começamos com a consultoria de tráfego e
+                            migramos para o full service. Melhor decisão do ano."</p>
+                        <div class="flex items-center gap-4 pt-6 border-t border-gray-100">
+                            <img src="/Users/giulian.pizzio/.gemini/antigravity/brain/32a6191a-ab79-4549-9a86-ec8937795cef/avatar_woman_3_1771010936861.png"
+                                class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <h5 class="font-bold text-gray-900 text-sm">Juliana M.</h5>
+                                <p class="text-xs text-gray-500">CEO, Dermocosméticos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ + Form Section -->
+        <section id="faq" class="section-gobee bg-gray-50">
+            <div class="container-gobee">
+                <div class="bg-gray-50 mb-12">
+                    <div class="flex flex-col items-center text-center">
+                        <h2 class="text-[31.5px] font-bold text-gobee-dark mb-2">Dúvidas sobre Saúde & Beleza</h2>
+                        <p class="text-gray-600">Entenda como otimizamos a recorrência e o LTV.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left Column: FAQ (4 questions) -->
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
+                            <button onclick="toggleAccordion(this)"
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Como funciona tecnicamente o Clube de Assinatura?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-chevron-down transition-transform text-gobee-rose"
+                                    style="transform: rotate(180deg);">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="px-8 py-0 max-h-none overflow-hidden transition-all duration-300 bg-gray-50/50 accordion-content"
+                                style="max-height: 200px;">
+                                <div class="py-5 text-gray-600 text-sm">
+                                    Utilizamos aplicativos específicos integrados à plataforma (como Bold ou apps
+                                    nativos da
+                                    Nuvemshop) que realizam a cobrança recorrente no cartão de crédito do cliente e
+                                    geram os
+                                    pedidos automaticamente no seu painel todo mês.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
+                            <button onclick="toggleAccordion(this)"
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Posso vender medicamentos controlados?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down transition-transform">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="px-8 py-0 max-h-0 overflow-hidden transition-all duration-300 bg-gray-50/50 accordion-content">
+                                <div class="py-5 text-gray-600 text-sm">
+                                    Sim, desde que sua loja possua todas as licenças da ANVISA e o RT (Responsável
+                                    Técnico)
+                                    cadastrado. A plataforma deve ter campos para upload da receita médica, que nós
+                                    configuramos no checkout.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
+                            <button onclick="toggleAccordion(this)"
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>Vocês montam os kits fisicamente?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down transition-transform">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="px-8 py-0 max-h-0 overflow-hidden transition-all duration-300 bg-gray-50/50 accordion-content">
+                                <div class="py-5 text-gray-600 text-sm">
+                                    Não. Nós criamos os kits 'virtuais' no sistema. O estoque é debitado dos produtos
+                                    individuais quando o kit é vendido, facilitando sua gestão de inventário sem
+                                    precisar
+                                    pré-embalar tudo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 overflow-hidden accordion-item">
+                            <button onclick="toggleAccordion(this)"
+                                class="w-full px-8 py-5 text-left font-bold text-gobee-dark flex justify-between items-center hover:bg-gray-50 transition-colors">
+                                <span>O Google aceita anúncios de suplementos?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-chevron-down transition-transform">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="px-8 py-0 max-h-0 overflow-hidden transition-all duration-300 bg-gray-50/50 accordion-content">
+                                <div class="py-5 text-gray-600 text-sm">
+                                    Sim, mas existem regras rígidas. Não podemos fazer promessas de cura ou resultados
+                                    milagrosos ('antes e depois' agressivos). Criamos copys e landing pages que
+                                    respeitam as
+                                    políticas do Google Merchant Center para evitar bloqueios.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Form -->
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sua dúvida não está aqui?</h3>
+                        <p class="text-sm text-gray-500 mb-6">Envie sua pergunta e um consultor responderá em breve.</p>
+
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Nome</label>
+                                    <input type="text" placeholder="Ex: Ana"
+                                        class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Sobrenome</label>
+                                    <input type="text" placeholder="Silva"
+                                        class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Seu E-mail</label>
+                                <input type="email" placeholder="ana@loja.com"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Seu WhatsApp</label>
+                                <input type="text" placeholder="(11) 99999-9999"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Sua Pergunta</label>
+                                <textarea rows="3" placeholder="Ex: Como funciona o processo de contrato?"
+                                    class="w-full rounded-lg border-gray-200 bg-white py-2.5 px-3 text-sm focus:border-gobee-rose focus:ring-gobee-rose border"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-gray-900 text-white rounded-lg py-3 font-bold text-sm hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                                Enviar Dúvida
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-send">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section-gobee bg-[#020617] text-white">
+            <div class="container-gobee text-center">
+                <h2 class="text-[26px] font-bold mb-6">Pronto para Escalar sua Marca de Beleza?</h2>
+                <p class="text-[16px] text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Não dependa apenas de novos clientes. Maximize o valor de cada comprador com estratégias de
+                    recorrência e fidelidade avançadas.
+                </p>
+                <button onclick="openDiagnosticModal()"
+                    class="px-7 py-3.5 bg-gobee-rose text-white font-bold rounded-lg hover:bg-gobee-rose-dark transition-all shadow-xl hover:-translate-y-1 inline-flex items-center gap-2 text-sm">
+                    Criar Estratégia de Recorrência
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-[#020617] border-t-2 border-gobee-rose text-white">
+        <div class="container-gobee">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div class="space-y-6">
+                    <img src="assets/images/gobee-logo.png" alt="GoBee" class="h-10 brightness-0 invert">
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Transformamos lojas virtuais em ecossistemas de vendas de alta performance. Infraestrutura,
+                        Tráfego e Retenção.
+                    </p>
+                </div>
+
+                <!-- Soluções -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">SOLUÇÕES</h4>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="infraestrutura-e-setup.html" class="hover:text-gobee-rose transition-colors">Setup
+                                & Migração</a></li>
+                        <li><a href="performance-e-trafego.html" class="hover:text-gobee-rose transition-colors">Tráfego
+                                Pago (Ads)</a></li>
+                        <li><a href="retencao-e-crm.html" class="hover:text-gobee-rose transition-colors">CRM &
+                                Retenção</a></li>
+                        <li><a href="marketplaces.html" class="hover:text-gobee-rose transition-colors">Marketplaces</a>
+                        </li>
+                        <li><a href="design-e-cro.html" class="hover:text-gobee-rose transition-colors">Design & CRO</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Nichos -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">NICHOS</h4>
+                    <ul class="space-y-3 text-xs text-gray-400">
+                        <li><a href="moda-e-acessorios.html" class="hover:text-gobee-rose transition-colors">Moda &
+                                Acessórios</a></li>
+                        <li><a href="saude-e-beleza.html" class="hover:text-gobee-rose transition-colors">Saúde &
+                                Beleza</a></li>
+                        <li><a href="pet-shop.html" class="hover:text-gobee-rose transition-colors">Pet Shop</a></li>
+                        <li><a href="casa-e-decoracao.html" class="hover:text-gobee-rose transition-colors">Casa &
+                                Decoração</a></li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="space-y-6">
+                    <h4 class="font-bold text-white uppercase tracking-wider text-sm">VAMOS CRESCER?</h4>
+                    <p class="text-gray-400 text-xs">Pare de deixar dinheiro na mesa. Solicite um diagnóstico.</p>
+                    <button onclick="openDiagnosticModal()"
+                        class="w-full bg-gobee-rose text-white font-bold py-3 rounded-lg hover:bg-gobee-rose-dark transition-all flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-message-circle">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                        </svg>
+                        Falar com Especialista
+                    </button>
+                    <a href="mailto:contato@gobee.com.br"
+                        class="flex items-center gap-2 text-gray-400 hover:text-white text-xs transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-mail">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        contato@gobee.com.br
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="w-full border-t border-gray-800 mt-16">
+            <div
+                class="container-gobee h-[60px] flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-gray-500">
+                <span>&copy; 2026 GoBee Commerce. Todos os direitos reservados.</span>
+                <div class="flex items-center gap-6">
+                    <a href="https://www.instagram.com/gobee.com.br/" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/gobeemarketing" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-linkedin">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/gobeemarketing" target="_blank"
+                        class="hover:text-gobee-rose transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Diagnostic Modal (same as home.html) -->
+    <div id="diagnostic-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop">
+        </div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-[20px] bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    id="modal-panel">
+                    <div
+                        class="bg-gray-50 px-4 py-3 sm:px-6 border-b border-gray-100 flex justify-between items-center">
+                        <div>
+                            <p class="text-[11px] font-bold text-gobee-rose tracking-wider uppercase">Diagnóstico GoBee
+                            </p>
+                            <h3 class="text-base font-bold text-gray-900" id="modal-step-title">Passo 1 de 4</h3>
+                        </div>
+                        <button type="button" onclick="closeDiagnosticModal()"
+                            class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Fechar</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="px-4 py-5 sm:p-6">
+                        <!-- Step 1: Personal Info -->
+                        <div id="step-1" class="step-content">
+                            <h4 class="text-xl font-bold text-gray-900 mb-1">Vamos começar!</h4>
+                            <p class="text-sm text-gray-500 mb-6">Precisamos saber quem é você para personalizar o
+                                plano.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label for="nome"
+                                        class="block text-xs font-semibold text-gray-700 mb-1">Nome</label>
+                                    <input type="text" id="nome"
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                        placeholder="Ex: João">
+                                </div>
+                                <div>
+                                    <label for="sobrenome"
+                                        class="block text-xs font-semibold text-gray-700 mb-1">Sobrenome</label>
+                                    <input type="text" id="sobrenome"
+                                        class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                        placeholder="Silva">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-xs font-semibold text-gray-700 mb-1">E-mail
+                                    Corporativo</label>
+                                <input type="email" id="email"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="joao@suaempresa.com.br">
+                            </div>
+                            <div class="mb-4">
+                                <label for="whatsapp" class="block text-xs font-semibold text-gray-700 mb-1">Telefone /
+                                    WhatsApp</label>
+                                <input type="tel" id="whatsapp"
+                                    class="w-full rounded-lg border-gray-300 shadow-sm focus:border-gobee-rose focus:ring-gobee-rose py-2.5 px-3 text-sm border"
+                                    placeholder="(11) 99999-9999">
+                            </div>
+                        </div>
+
+                        <!-- Steps 2-4 and Result (simplified for brevity, same as home.html) -->
+                        <div id="step-2" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual seu segmento?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('segmento', 'Moda & Acessórios')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Moda
+                                        & Acessórios</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Saúde & Beleza')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Saúde
+                                        & Beleza</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Pet Shop')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Pet
+                                        Shop</span>
+                                </button>
+                                <button type="button" onclick="selectOption('segmento', 'Outros')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group flex items-center justify-between">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Outros</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="step-3" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual o momento atual da loja?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('faturamento', '0-10k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Estou
+                                        começando (R$ 0 - R$ 10k/mês)</span>
+                                </button>
+                                <button type="button" onclick="selectOption('faturamento', '10k-100k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Em
+                                        crescimento (R$ 10k - R$ 100k/mês)</span>
+                                </button>
+                                <button type="button" onclick="selectOption('faturamento', '+100k')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <span
+                                        class="font-medium text-gray-700 group-hover:text-gobee-rose transition-colors">Escalando
+                                        (+ R$ 100k/mês)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="step-4" class="step-content hidden">
+                            <h4 class="text-xl font-bold text-gray-900 mb-6">Qual seu maior desafio hoje?</h4>
+                            <div class="space-y-3">
+                                <button type="button" onclick="selectOption('desafio', 'Setup/Migração')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Preciso
+                                            migrar de plataforma (Setup)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Meu site atual trava ou é limitado.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Tráfego (Ads)')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Trazer
+                                            tráfego qualificado (Ads)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Preciso vender mais para novos clientes.</p>
+                                </button>
+                                <button type="button" onclick="selectOption('desafio', 'Retenção (CRM)')"
+                                    class="option-card w-full text-left p-4 rounded-xl border border-gray-200 hover:border-gobee-rose hover:bg-rose-50 transition-all group">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span
+                                            class="font-bold text-gray-900 group-hover:text-gobee-rose transition-colors">Reter
+                                            clientes (LTV/CRM)</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">Tenho tráfego mas o cliente não volta.</p>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Result -->
+                        <div id="step-result" class="step-content hidden text-center pt-2">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-900 mb-2">Diagnóstico Concluído!</h4>
+                            <p class="text-gray-500 text-sm mb-6">Com base nas suas respostas, a solução ideal é:</p>
+                            <div class="bg-rose-50 border border-gobee-rose rounded-xl p-6 mb-6">
+                                <div id="result-icon" class="mb-3 flex justify-center text-gobee-rose/40"></div>
+                                <h3 id="result-title" class="text-lg font-bold text-gray-900 mb-2">Titulo</h3>
+                                <p id="result-description" class="text-sm text-gray-600 leading-relaxed">Descrição.</p>
+                            </div>
+                            <button id="btn-whatsapp" onclick="openWhatsApp()"
+                                class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-3.5 px-6 rounded-[10.5px] transition-all flex items-center justify-center gap-2 mb-4 shadow-lg hover:-translate-y-0.5">
+                                Falar com especialista
+                            </button>
+                        </div>
+                    </div>
+                    <div id="modal-footer"
+                        class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-gray-100">
+                        <button type="button" id="btn-next" onclick="nextStep()"
+                            class="w-full inline-flex justify-center rounded-[10.5px] border border-transparent bg-gray-600 px-4 py-2 text-base font-bold text-white shadow-sm hover:bg-gray-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                            Próximo
+                        </button>
+                        <button type="button" id="btn-back" onclick="prevStep()"
+                            class="mt-3 w-full inline-flex justify-center rounded-[10.5px] border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-all hidden">
+                            Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const state = {
+            step: 1,
+            data: { nome: '', sobrenome: '', email: '', whatsapp: '', segmento: '', faturamento: '', desafio: '', segmentoOutros: '', desafioOutros: '' }
+        };
+
+        const modal = document.getElementById('diagnostic-modal');
+        const backdrop = document.getElementById('modal-backdrop');
+        const panel = document.getElementById('modal-panel');
+        const stepTitle = document.getElementById('modal-step-title');
+        const btnNext = document.getElementById('btn-next');
+        const btnBack = document.getElementById('btn-back');
+        const modalFooter = document.getElementById('modal-footer');
+
+        function openDiagnosticModal() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+                panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+            }, 10);
+            updateUI();
+        }
+
+        function closeDiagnosticModal() {
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
+            panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function nextStep() {
+            if (!validateStep()) return;
+            if (state.step < 5) { state.step++; updateUI(); }
+        }
+
+        function prevStep() {
+            if (state.step > 1) { state.step--; updateUI(); }
+        }
+
+        function selectOption(key, value) {
+            state.data[key] = value;
+            const currentStepEl = document.getElementById(`step-${state.step}`);
+            const buttons = currentStepEl.querySelectorAll('.option-card');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-gobee-rose', 'bg-rose-50', 'ring-1', 'ring-gobee-rose');
+                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${value}'`)) {
+                    btn.classList.add('border-gobee-rose', 'bg-rose-50', 'ring-1', 'ring-gobee-rose');
+                }
+            });
+            validateStep();
+        }
+
+        function validateStep() {
+            let isValid = false;
+            if (state.step === 1) {
+                const nome = document.getElementById('nome').value;
+                const sobrenome = document.getElementById('sobrenome').value;
+                const email = document.getElementById('email').value;
+                const whatsapp = document.getElementById('whatsapp').value;
+                if (nome && sobrenome && email && whatsapp && whatsapp.length >= 14) isValid = true;
+            } else if (state.step === 2) {
+                if (state.data.segmento) isValid = true;
+            } else if (state.step === 3) {
+                if (state.data.faturamento) isValid = true;
+            } else if (state.step === 4) {
+                if (state.data.desafio) isValid = true;
+            }
+            if (isValid) {
+                btnNext.removeAttribute('disabled');
+                btnNext.classList.remove('bg-gray-400');
+                btnNext.classList.add('bg-gobee-dark');
+            } else {
+                btnNext.setAttribute('disabled', 'true');
+                btnNext.classList.add('bg-gray-400');
+            }
+            return isValid;
+        }
+
+        function updateUI() {
+            document.querySelectorAll('.step-content').forEach(el => el.classList.add('hidden'));
+            if (state.step <= 4) {
+                document.getElementById(`step-${state.step}`).classList.remove('hidden');
+                stepTitle.innerText = `Passo ${state.step} de 4`;
+                btnNext.classList.remove('hidden');
+                if (state.step > 1) btnBack.classList.remove('hidden'); else btnBack.classList.add('hidden');
+                validateStep();
+            } else {
+                updateResultContent();
+                document.getElementById('step-result').classList.remove('hidden');
+                stepTitle.innerText = 'Seu Resultado';
+                btnNext.classList.add('hidden');
+                btnBack.classList.remove('hidden');
+            }
+        }
+
+        function updateResultContent() {
+            const titleEl = document.getElementById('result-title');
+            const descEl = document.getElementById('result-description');
+            if (state.data.faturamento === '+100k') {
+                titleEl.textContent = 'Aceleração Mensal (Growth Partner)';
+                descEl.textContent = 'Você já tem produto validado e precisa de escala. Nosso foco será reduzir seu CAC e aumentar o LTV.';
+            } else {
+                titleEl.textContent = 'Projeto Pontual (Especialista)';
+                descEl.textContent = 'O momento pede organização da casa. Vamos resolver seus gargalos técnicos e de migração.';
+            }
+        }
+
+        function openWhatsApp() {
+            const msg = `Olá! Fiz o diagnóstico no site. Nome: ${document.getElementById('nome').value}. Desafio: ${state.data.desafio}`;
+            window.open(`https://wa.me/554830360686?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        ['nome', 'sobrenome', 'email', 'whatsapp'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', validateStep);
+        });
+
+        document.getElementById('whatsapp').addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                el.style.maxHeight = '0px';
+                el.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
+                el.previousElementSibling.querySelector('svg').classList.remove('text-gobee-rose');
+            });
+
+            // Toggle current
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+                icon.classList.add('text-gobee-rose');
+            }
+        }
+    </script>
+</body>
+
+</html>
